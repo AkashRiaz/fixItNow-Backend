@@ -7,13 +7,14 @@ import httpStatus from "http-status";
 const registerUser = catchAsync(async(req:Request, res:Response, next: NextFunction)=>{
     const payload = req.body;
     const result = await userService.registerUserIntoDB(payload);
+    console.log("result", result)
 
-    sendResponse(res, {
-        success: true,
-        statusCode: httpStatus.CREATED,
-        message: "User registered successfully",
-        data: result
-    })
+    // sendResponse(res, {
+    //     success: true,
+    //     statusCode: httpStatus.CREATED,
+    //     message: "User registered successfully",
+    //     data: result
+    // })
 })
 
 

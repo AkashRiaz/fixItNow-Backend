@@ -8,7 +8,8 @@ model TechnicianProfile {
     experience String @default("")
     location String @default("")
     hourlyRate  Float?
-    isAvailable Boolean  @default(true)
+
+    availability Availability[]
 
     averageRating Float @default(0)
     totalReviews  Int   @default(0)
@@ -18,4 +19,20 @@ model TechnicianProfile {
     updatedAt DateTime @updatedAt
 
 @@map("technicianProfiles")
+}
+
+model Availability {
+    id String @id @default (uuid())
+
+    technicianId String 
+    technician TechnicianProfile @relation(fields: [technicianId], references: [id], onDelete: Cascade)
+
+    dayOfWeek Int
+    startTime DateTime
+    endTime DateTime
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("availabilities")
 }
