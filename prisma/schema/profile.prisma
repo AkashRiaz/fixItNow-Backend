@@ -5,8 +5,8 @@ model TechnicianProfile {
     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
     bio String?
-    experience String
-    location String
+    experience String @default("")
+    location String @default("")
     hourlyRate  Float?
     isAvailable Boolean  @default(true)
 
