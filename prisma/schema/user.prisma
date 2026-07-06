@@ -9,6 +9,12 @@ model User {
 
     technicianProfile TechnicianProfile?
 
+ // Bookings created by the user as a customer
+    bookings Booking[] @relation("CustomerBookings")
+
+// Reviews written by the user as a customer
+    reviews Review[] @relation("CustomerReviews")
+
     createdAt DateTime    @default(now())
     updatedAt DateTime    @updatedAt
 
