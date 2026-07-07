@@ -13,6 +13,8 @@ router.patch(
 
 router.get("/", technicianController.getAllTechnicians);
 
+router.get("/bookings", auth(Role.TECHNICIAN), technicianController.getTechnicianBookings);
+
 router.get("/:id", technicianController.getTechnicianById);
 
 router.patch("/availability", auth(Role.TECHNICIAN), technicianController.updateTechnicianAvailability);

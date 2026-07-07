@@ -31,10 +31,14 @@ const createService = async (
 
 const getAllServices = async () => {
   const services = await prisma.service.findMany({
-    include:{
-        category: true,
-        technician: true,
-    }
+    include: {
+      category: true,
+      technician: {
+        include: {
+          user: true,
+        },
+      },
+    },
   });
 
   return services;
