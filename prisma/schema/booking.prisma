@@ -7,6 +7,8 @@ model Booking {
     totalPrice Float
     notes String?
 
+    customerAddress String
+
     // Customer (Booking Requester)
     customerId String
     customer User @relation("CustomerBookings", fields: [customerId], references: [id], onDelete: Cascade)
