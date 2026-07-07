@@ -3,4 +3,4 @@ import { Router } from "express";
 const router = Router();
 
 
-export const categoryRoute = router;
+export const adminRoute = router;
