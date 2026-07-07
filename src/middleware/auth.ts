@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from "express";
-import { catchAsync } from "../../utils/catchAsync";
-import { jwtHelper } from "../../utils/jwt";
-import config from "../../config";
+import { Role } from "../../generated/prisma/enums";
+import { catchAsync } from "../utils/catchAsync";
+import { jwtHelper } from "../utils/jwt";
+import config from "../config";
 import { JwtPayload } from "jsonwebtoken";
-import { prisma } from "../../lib/prisma";
-import { Role } from "../../../generated/prisma/enums";
+import { prisma } from "../lib/prisma";
 
 declare global {
   namespace Express {
@@ -45,7 +45,7 @@ export const auth = (...requiredRoles: Role[]) => {
 
     if (requiredRoles.length && !requiredRoles.includes(role as Role)) {
       throw new Error(
-        "Forbidden! You don't have permission to access this resource."
+        "Forbidden! You don't have permission to access this resource.",
       );
     }
 
