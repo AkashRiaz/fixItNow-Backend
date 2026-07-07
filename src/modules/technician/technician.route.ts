@@ -11,6 +11,10 @@ router.patch(
   technicianController.updateTechnicianProfile,
 );
 
+router.get("/", technicianController.getAllTechnicians);
+
+router.get("/:id", technicianController.getTechnicianById);
+
 router.patch("/availability", auth(Role.TECHNICIAN), technicianController.updateTechnicianAvailability);
 
 export const technicianRoute = router;
