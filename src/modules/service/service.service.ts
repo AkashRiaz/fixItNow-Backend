@@ -29,6 +29,18 @@ const createService = async (
   return service;
 };
 
+const getAllServices = async () => {
+  const services = await prisma.service.findMany({
+    include:{
+        category: true,
+        technician: true,
+    }
+  });
+
+  return services;
+};
+
 export const serviceService = {
   createService,
+  getAllServices,
 };
