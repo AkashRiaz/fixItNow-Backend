@@ -32,6 +32,6 @@ app.use("/api/auth", authRoute);
 app.use("/api/technician", technicianRoute);
 app.use("/api/booking", bookingRoute);
 app.use("/api/service", serviceRoute);
-app.use("/api/category", adminRoute);
+app.use("/api/admin", adminRoute);
 
 export default app;

@@ -20,6 +20,10 @@ const createService = async (
       ...payload,
       technicianId: technicianProfile.id,
     },
+    include: {
+      category: true,
+      technician: true,
+    },
   });
 
   return service;
