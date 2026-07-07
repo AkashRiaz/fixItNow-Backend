@@ -1,4 +1,6 @@
+import { Prisma } from "../../../generated/prisma/browser";
 import { BookingStatus, UserStatus } from "../../../generated/prisma/enums";
+import { TechnicianProfileWhereInput } from "../../../generated/prisma/models";
 import { prisma } from "../../lib/prisma";
 import {
   ITechnicianAvailabilityPayload,
@@ -70,8 +72,111 @@ const updateTechnicianAvailability = async (
   return result;
 };
 
-const getAllTechnicians = async () => {
+const getAllTechnicians = async (query: any) => {
+  const limit = query.limit ? Number(query.limit) : 10;
+  const page = query.page ? Number(query.page) : 1;
+  const skip = (page - 1) * limit;
+  const sortBy = query.sortBy ? query.sortBy : "createdAt";
+  const sortOrder = query.sortOrder ? query.sortOrder : "desc";
+
+  const andConditions: TechnicianProfileWhereInput[] = [];
+
+  if (query.searchTerm) {
+    andConditions.push({
+      OR: [
+        {
+          user: {
+            name: {
+              contains: query.searchTerm,
+              mode: "insensitive",
+            },
+          },
+        },
+        {
+          user: {
+            email: {
+              contains: query.searchTerm,
+              mode: "insensitive",
+            },
+          },
+        },
+        {
+          bio: {
+            contains: query.searchTerm,
+            mode: "insensitive",
+          },
+        },
+        {
+          location: {
+            contains: query.searchTerm,
+            mode: "insensitive",
+          },
+        },
+        {
+          hourlyRate: {
+            equals: Number(query.searchTerm),
+          },
+        },
+        {
+          experience: {
+            contains: query.searchTerm,
+            mode: "insensitive",
+          },
+        },
+      ],
+    });
+  }
+
+  if (query.location) {
+    andConditions.push({
+      location: {
+        equals: query.location,
+        mode: "insensitive",
+      },
+    });
+  }
+  if (query.status) {
+    andConditions.push({
+      user: {
+        status: query.status as UserStatus,
+      },
+    });
+  }
+
+  if (query.minHourlyRate || query.maxHourlyRate) {
+    const hourlyRateFilter: Prisma.FloatFilter = {};
+
+    if (query.minHourlyRate) {
+      hourlyRateFilter.gte = Number(query.minHourlyRate);
+    }
+
+    if (query.maxHourlyRate) {
+      hourlyRateFilter.lte = Number(query.maxHourlyRate);
+    }
+
+    andConditions.push({
+      hourlyRate: hourlyRateFilter,
+    });
+  }
+
+  const whereConditions: Prisma.TechnicianProfileWhereInput =
+    andConditions.length > 0
+      ? {
+          AND: andConditions,
+        }
+      : {};
+
+  const total = await prisma.technicianProfile.count({
+    where: whereConditions,
+  });
+
   const technicians = await prisma.technicianProfile.findMany({
+    where: whereConditions,
+    take: limit,
+    skip: skip,
+    orderBy: {
+      [sortBy]: sortOrder,
+    },
     include: {
       user: true,
       availability: true,
@@ -79,7 +184,14 @@ const getAllTechnicians = async () => {
     },
   });
 
-  return technicians;
+  return {
+    meta: {
+      page,
+      limit,
+      total,
+    },
+    data: technicians,
+  };
 };
 
 const getTechnicianById = async (technicianId: string) => {

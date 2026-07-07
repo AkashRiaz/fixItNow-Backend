@@ -42,13 +42,15 @@ const updateTechnicianAvailability = catchAsync(
 
 const getAllTechnicians = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const technicians = await technicianService.getAllTechnicians();
+    const query = req.query;
+    const technicians = await technicianService.getAllTechnicians(query);
 
     sendResponse(res, {
       success: true,
       statusCode: httpStatus.OK,
       message: "Technicians retrieved successfully",
-      data: technicians,
+      meta: technicians.meta,
+      data: technicians.data,
     });
   },
 );
