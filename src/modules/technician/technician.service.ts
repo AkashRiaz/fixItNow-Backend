@@ -1,3 +1,4 @@
+import { BookingStatus, UserStatus } from "../../../generated/prisma/enums";
 import { prisma } from "../../lib/prisma";
 import {
   ITechnicianAvailabilityPayload,
@@ -115,10 +116,84 @@ const getTechnicianBookings = async (userId: string) => {
         include: {
           user: true,
         },
-      }
+      },
     },
   });
   return bookings;
+};
+
+const updateBookingStatus = async (
+  userId: string,
+  bookingId: string,
+  status: BookingStatus,
+) => {
+  const technicianProfile = await prisma.technicianProfile.findUnique({
+    where: {
+      userId,
+    },
+  });
+
+  if (!technicianProfile) {
+    throw new Error("Technician profile not found");
+  }
+
+  const booking = await prisma.booking.findUnique({
+    where: {
+      id: bookingId,
+    },
+  });
+  if (!booking) {
+    throw new Error("Booking not found");
+  }
+
+  if (booking.technicianId !== technicianProfile.id) {
+    throw new Error("You are not authorized to update this booking");
+  }
+
+  // Allowed status transitions
+  const allowedTransitions: Record<BookingStatus, BookingStatus[]> = {
+    REQUESTED: [BookingStatus.ACCEPTED, BookingStatus.DECLINED],
+    ACCEPTED: [],
+    PAID: [BookingStatus.IN_PROGRESS],
+    IN_PROGRESS: [BookingStatus.COMPLETED],
+    COMPLETED: [],
+    DECLINED: [],
+    CANCELLED: [],
+  };
+
+  if (!allowedTransitions[booking.status].includes(status)) {
+    throw new Error(
+      `Cannot change booking status from ${booking.status} to ${status}.`,
+    );
+  }
+
+  const updatedBooking = await prisma.$transaction(async (tx) => {
+    const booking = await tx.booking.update({
+      where: {
+        id: bookingId,
+      },
+      data: {
+        status,
+      },
+    });
+
+    if (status === BookingStatus.COMPLETED) {
+      await tx.technicianProfile.update({
+        where: {
+          id: technicianProfile.id,
+        },
+        data: {
+          completedJobs: {
+            increment: 1,
+          },
+        },
+      });
+    }
+
+    return booking;
+  });
+
+  return updatedBooking;
 };
 
 export const technicianService = {
@@ -127,4 +202,5 @@ export const technicianService = {
   getAllTechnicians,
   getTechnicianById,
   getTechnicianBookings,
+  updateBookingStatus,
 };

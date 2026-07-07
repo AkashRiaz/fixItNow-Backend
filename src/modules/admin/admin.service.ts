@@ -49,17 +49,36 @@ const updateUserStatus = async (userId: string, status: UserStatus) => {
       id: userId,
     },
     omit: {
-        password: true,
+      password: true,
     },
     data: {
       status: status,
     },
-    include:{
-        technicianProfile: true,
-    }
+    include: {
+      technicianProfile: true,
+    },
   });
 
   return updatedUser;
+};
+
+const getAllBookingsForAdmin = async () => {
+  const bookings = await prisma.booking.findMany({
+    include: {
+      service: true,
+      customer: {
+        omit: {
+          password: true,
+        },
+      },
+      technician: {
+        include: {
+          user: true,
+        },
+      },
+    },
+  });
+  return bookings;
 };
 
 export const adminService = {
@@ -67,4 +86,5 @@ export const adminService = {
   getAllCategories,
   getAllUsers,
   updateUserStatus,
+  getAllBookingsForAdmin,
 };

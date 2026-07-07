@@ -19,4 +19,6 @@ router.get("/:id", technicianController.getTechnicianById);
 
 router.patch("/availability", auth(Role.TECHNICIAN), technicianController.updateTechnicianAvailability);
 
+router.patch("/bookings/:id", auth(Role.TECHNICIAN), technicianController.updateBookingStatus);
+
 export const technicianRoute = router;

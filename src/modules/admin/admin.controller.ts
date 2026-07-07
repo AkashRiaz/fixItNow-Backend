@@ -63,9 +63,21 @@ const updateUserStatus = catchAsync(
   },
 );
 
+const getAllBookingsForAdmin = catchAsync(async(req:Request, res:Response, next:NextFunction)=>{
+  const bookings = await adminService.getAllBookingsForAdmin();
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Bookings retrieved successfully",
+    data: bookings,
+  });
+})
+
 export const adminController = {
   createCategory,
   getAllCategories,
   getAllUsers,
   updateUserStatus,
+  getAllBookingsForAdmin,
 };
