@@ -20,6 +20,13 @@ app.use(
     credentials: true,
   }),
 );
+
+app.use(
+  "/api/payments/webhook",
+  express.raw({ type:"application/json" })
+);
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -39,6 +46,7 @@ app.use("/api/service", serviceRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/category", categoryRoute);
 app.use("/api/reviews", reviewRoute);
+app.use("/api/payments", require("./modules/payment/payment.route").default);
 
 app.use(notFound);
 
