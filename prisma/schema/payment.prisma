@@ -4,6 +4,10 @@ model Payment {
     booking Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
 
     transactionId String?
+
+    stripeSessionId String?
+
+
     amount Float
     provider PaymentProvider @default(STRIPE)
 

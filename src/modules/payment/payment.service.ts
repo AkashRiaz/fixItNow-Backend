@@ -1,6 +1,7 @@
 import config from "../../config";
 import { prisma } from "../../lib/prisma";
 import { stripe } from "../../lib/stripe";
+import { handleCheckoutCompleted, handlePaymentFailed } from "./payment.utils";
 
 const createPaymentSession = async (userId: string, bookingId: string) => {
   const transactionResult = await prisma.$transaction(async (tx) => {
@@ -34,6 +35,8 @@ const createPaymentSession = async (userId: string, bookingId: string) => {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
 
+      customer_email: booking.customer.email,
+
       line_items: [
         {
           price_data: {
@@ -63,6 +66,32 @@ const createPaymentSession = async (userId: string, bookingId: string) => {
   };
 };
 
+const handleWebhook = async (payload: Buffer, signature: string) => {
+  const event = stripe.webhooks.constructEvent(
+    payload,
+    signature,
+    config.stripe_webhook_secret,
+  );
+
+  switch (event.type) {
+    case "checkout.session.completed":
+      await handleCheckoutCompleted(event.data.object);
+
+      break;
+
+    case "payment_intent.payment_failed":
+      await handlePaymentFailed(event.data.object);
+
+      break;
+
+    default:
+      console.log(`No events matched. Unhandled event type ${event.type}`);
+
+      break;
+  }
+};
+
 export const paymentService = {
   createPaymentSession,
+  handleWebhook,
 };
