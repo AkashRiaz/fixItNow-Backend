@@ -11,6 +11,7 @@ import { categoryRoute } from "./modules/category/category.route";
 import { reviewRoute } from "./modules/review/review.route";
 import { notFound } from "./middleware/notFound";
 import { globalErrorHandler } from "./middleware/globalErrorHandler";
+import { paymentRoute } from "./modules/payment/payment.route";
 
 const app: Application = express();
 
@@ -21,11 +22,7 @@ app.use(
   }),
 );
 
-app.use(
-  "/api/payments/webhook",
-  express.raw({ type:"application/json" })
-);
-
+app.use("/api/payments/webhook", express.raw({ type: "application/json" }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -46,7 +43,7 @@ app.use("/api/service", serviceRoute);
 app.use("/api/admin", adminRoute);
 app.use("/api/category", categoryRoute);
 app.use("/api/reviews", reviewRoute);
-app.use("/api/payments", require("./modules/payment/payment.route").default);
+app.use("/api/payments", paymentRoute);
 
 app.use(notFound);
 

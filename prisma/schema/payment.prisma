@@ -3,7 +3,7 @@ model Payment {
     bookingId String @unique
     booking Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
 
-    transactionId String
+    transactionId String?
     amount Float
     provider PaymentProvider @default(STRIPE)
 
