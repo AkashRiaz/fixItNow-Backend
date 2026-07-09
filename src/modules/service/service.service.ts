@@ -131,7 +131,11 @@ const getAllServices = async (query: any) => {
       category: true,
       technician: {
         include: {
-          user: true,
+          user: {
+            omit: {
+              password: true,
+            },
+          },
         },
       },
     },

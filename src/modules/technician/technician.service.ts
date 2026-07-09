@@ -178,7 +178,11 @@ const getAllTechnicians = async (query: any) => {
       [sortBy]: sortOrder,
     },
     include: {
-      user: true,
+      user: {
+        omit: {
+          password: true,
+        },
+      },
       availability: true,
       reviews: true,
     },
@@ -226,7 +230,11 @@ const getTechnicianBookings = async (userId: string) => {
       },
       technician: {
         include: {
-          user: true,
+          user: {
+            omit: {
+              password: true,
+            },
+          },
         },
       },
     },

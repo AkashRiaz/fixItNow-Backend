@@ -28,6 +28,9 @@ const registerUserIntoDB = async (payload: IUserRegisteredPayload) => {
         phone,
         ...(role && { role }),
       },
+      omit: {
+        password: true,
+      },
     });
 
     if (user.role === "TECHNICIAN") {

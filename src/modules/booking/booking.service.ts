@@ -28,7 +28,11 @@ const createBooking = async (
       service: true,
       technician: {
         include: {
-          user: true,
+          user: {
+            omit: {
+              password: true,
+            },
+          },
         },
       },
     },
@@ -43,7 +47,11 @@ const getAllBookings = async () => {
       service: true,
       technician: {
         include: {
-          user: true,
+          user: {
+            omit: {
+              password: true,
+            },
+          },
         },
       },
     },
@@ -62,7 +70,11 @@ const getBookingById = async (bookingId: string) => {
       service: true,
       technician: {
         include: {
-          user: true,
+          user: {
+            omit: {
+              password: true,
+            },
+          },
         },
       },
     },
