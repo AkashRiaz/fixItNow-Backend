@@ -1,0 +1,2962 @@
+{
+  "info": {
+    "_postman_id": "86ead128-7221-4e35-869c-d7a45a6a76ab",
+    "name": "FixItNow",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31716618"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Register-User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Md Meraz\",\r\n    \"email\": \"meraz.customern@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"phone\": \"01772295034\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/users/register",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Register-User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Md Meraz\",\r\n    \"email\": \"meraz.customern@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"phone\": \"01772295034\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/users/register",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "users",
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 201
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:41:47 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"187-jQtfjeJqVzE1f1NKlQs1pMTj1Fo\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::z46h9-1783539705034-d8724133303f"
+                },
+                {
+                  "key": "content-length",
+                  "value": "391"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 201,\n    \"message\": \"User registered successfully\",\n    \"data\": {\n        \"id\": \"aa7b6565-e7a3-435b-a237-6d510ac645fc\",\n        \"name\": \"Md Meraz\",\n        \"email\": \"meraz.customern@gmail.com\",\n        \"password\": \"$2b$10$GhMCyoY9NMZn7D37ZHyRWOqULRJW.1SUzM8VM1.4oesxH5OwoIGBi\",\n        \"phone\": \"01772295034\",\n        \"role\": \"CUSTOMER\",\n        \"status\": \"ACTIVE\",\n        \"createdAt\": \"2026-07-08T19:41:47.408Z\",\n        \"updatedAt\": \"2026-07-08T19:41:47.408Z\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"meraz.customern@gmail.com\",\r\n    \"password\": \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/auth/login",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Me",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/auth/me",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Me",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/auth/me",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "auth",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:44:45 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"153-KpJLYyQBW1wDe90S/xhbOz37l/g\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::smf4l-1783539883083-26a537169d4e"
+                },
+                {
+                  "key": "content-length",
+                  "value": "339"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"User fetched successfully\",\n    \"data\": {\n        \"id\": \"aa7b6565-e7a3-435b-a237-6d510ac645fc\",\n        \"name\": \"Md Meraz\",\n        \"email\": \"meraz.customern@gmail.com\",\n        \"phone\": \"01772295034\",\n        \"role\": \"CUSTOMER\",\n        \"status\": \"ACTIVE\",\n        \"createdAt\": \"2026-07-08T19:41:47.408Z\",\n        \"updatedAt\": \"2026-07-08T19:41:47.408Z\",\n        \"technicianProfile\": null\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Technician",
+      "item": [
+        {
+          "name": "Update-Technician-Profile",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\r\n    \"experience\": \"1 years\",\r\n    \"location\": \"Khulna, Bangladesh\",\r\n    \"hourlyRate\": 900\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/technician/profile",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "technician",
+                "profile"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update-Technician-Profile",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\r\n    \"experience\": \"1 years\",\r\n    \"location\": \"Khulna, Bangladesh\",\r\n    \"hourlyRate\": 900\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/technician/profile",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "technician",
+                    "profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:46:57 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"1fc-HUeJWKxAwbPJ54lJ+c+tBhjPB88\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::zkjsp-1783540015166-e68f64535855"
+                },
+                {
+                  "key": "content-length",
+                  "value": "508"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Technician profile updated successfully\",\n    \"data\": {\n        \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n        \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n        \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n        \"experience\": \"1 years\",\n        \"location\": \"Khulna, Bangladesh\",\n        \"hourlyRate\": 900,\n        \"averageRating\": 5,\n        \"totalReviews\": 1,\n        \"completedJobs\": 1,\n        \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n        \"updatedAt\": \"2026-07-08T19:46:57.193Z\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update-Technician-Availability",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"dayOfWeek\": 2,\r\n    \"startTime\": \"2026-07-07T10:00:00.000Z\",\r\n    \"endTime\": \"2026-07-07T16:00:00.000Z\"\r\n  },\r\n  {\r\n    \"dayOfWeek\": 3,\r\n    \"startTime\": \"2026-07-08T08:30:00.000Z\",\r\n    \"endTime\": \"2026-07-08T11:30:00.000Z\"\r\n  }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/technician/availability",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "technician",
+                "availability"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update-Technician-Availability",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\r\n  {\r\n    \"dayOfWeek\": 2,\r\n    \"startTime\": \"2026-07-07T10:00:00.000Z\",\r\n    \"endTime\": \"2026-07-07T16:00:00.000Z\"\r\n  },\r\n  {\r\n    \"dayOfWeek\": 3,\r\n    \"startTime\": \"2026-07-08T08:30:00.000Z\",\r\n    \"endTime\": \"2026-07-08T11:30:00.000Z\"\r\n  }\r\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/technician/availability",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "technician",
+                    "availability"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:47:23 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"27b-4plORrBXESKdNAFwm19hf0dt6nE\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::lsrwv-1783540039864-49d3848a64b7"
+                },
+                {
+                  "key": "content-length",
+                  "value": "635"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Technician availability updated successfully\",\n    \"data\": [\n        {\n            \"id\": \"fe6833f9-d395-47de-85ae-a3343aacc2e6\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"dayOfWeek\": 2,\n            \"startTime\": \"2026-07-07T10:00:00.000Z\",\n            \"endTime\": \"2026-07-07T16:00:00.000Z\",\n            \"createdAt\": \"2026-07-08T19:47:22.827Z\",\n            \"updatedAt\": \"2026-07-08T19:47:22.827Z\"\n        },\n        {\n            \"id\": \"522b2ca2-2b6b-4249-b7da-47f43f997275\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"dayOfWeek\": 3,\n            \"startTime\": \"2026-07-08T08:30:00.000Z\",\n            \"endTime\": \"2026-07-08T11:30:00.000Z\",\n            \"createdAt\": \"2026-07-08T19:47:22.827Z\",\n            \"updatedAt\": \"2026-07-08T19:47:22.827Z\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get-All-Technicians",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/technician",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "technician"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "ACTIVE",
+                  "disabled": true
+                },
+                {
+                  "key": "searchTerm",
+                  "value": "Riaz",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get-All-Technicians",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/technician",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "technician"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "ACTIVE",
+                      "disabled": true
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "Riaz",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:47:35 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"a1a-BY8lTw6jCWJ3ArTbXVY87llSnOY\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::b4pz4-1783540053106-d2d7d7b5b50f"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Technicians retrieved successfully\",\n    \"meta\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 2\n    },\n    \"data\": [\n        {\n            \"id\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n            \"userId\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n            \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n            \"experience\": \"5 years\",\n            \"location\": \"Magura, Bangladesh\",\n            \"hourlyRate\": 1500,\n            \"averageRating\": 0,\n            \"totalReviews\": 0,\n            \"completedJobs\": 0,\n            \"createdAt\": \"2026-07-07T06:12:48.702Z\",\n            \"updatedAt\": \"2026-07-07T06:15:16.726Z\",\n            \"user\": {\n                \"id\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                \"name\": \"Md Riaz\",\n                \"email\": \"riaz.technician@gmail.com\",\n                \"password\": \"$2b$10$u.bDIh7LXPSF20V8HR2UgeGpGO4Ej5HIW3o8kOrzM8Eh6/6Dn95hS\",\n                \"phone\": \"01772295094\",\n                \"role\": \"TECHNICIAN\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-07T06:12:48.643Z\",\n                \"updatedAt\": \"2026-07-07T06:12:48.643Z\"\n            },\n            \"availability\": [],\n            \"reviews\": []\n        },\n        {\n            \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n            \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n            \"experience\": \"1 years\",\n            \"location\": \"Khulna, Bangladesh\",\n            \"hourlyRate\": 900,\n            \"averageRating\": 5,\n            \"totalReviews\": 1,\n            \"completedJobs\": 1,\n            \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n            \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n            \"user\": {\n                \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"name\": \"Mike Technician\",\n                \"email\": \"mike.technician@example.com\",\n                \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                \"phone\": \"01812345678\",\n                \"role\": \"TECHNICIAN\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n            },\n            \"availability\": [\n                {\n                    \"id\": \"fe6833f9-d395-47de-85ae-a3343aacc2e6\",\n                    \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                    \"dayOfWeek\": 2,\n                    \"startTime\": \"2026-07-07T10:00:00.000Z\",\n                    \"endTime\": \"2026-07-07T16:00:00.000Z\",\n                    \"createdAt\": \"2026-07-08T19:47:22.827Z\",\n                    \"updatedAt\": \"2026-07-08T19:47:22.827Z\"\n                },\n                {\n                    \"id\": \"522b2ca2-2b6b-4249-b7da-47f43f997275\",\n                    \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                    \"dayOfWeek\": 3,\n                    \"startTime\": \"2026-07-08T08:30:00.000Z\",\n                    \"endTime\": \"2026-07-08T11:30:00.000Z\",\n                    \"createdAt\": \"2026-07-08T19:47:22.827Z\",\n                    \"updatedAt\": \"2026-07-08T19:47:22.827Z\"\n                }\n            ],\n            \"reviews\": [\n                {\n                    \"id\": \"e1a5d56f-0011-44e5-a274-432dffecbcd3\",\n                    \"rating\": 5,\n                    \"comment\": \"Excellent service! The technician arrived on time and fixed the issue quickly.\",\n                    \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n                    \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                    \"bookingId\": \"81658b2d-b099-4ac7-af1b-e7e059b1451a\",\n                    \"createdAt\": \"2026-07-07T16:03:45.598Z\",\n                    \"updatedAt\": \"2026-07-07T16:03:45.598Z\"\n                }\n            ]\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get-Technician-ById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/technician/5b4f66b7-2286-43bd-b723-87849a3dc575",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "technician",
+                "5b4f66b7-2286-43bd-b723-87849a3dc575"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get-Technician-ById",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/technician/5b4f66b7-2286-43bd-b723-87849a3dc575",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "technician",
+                    "5b4f66b7-2286-43bd-b723-87849a3dc575"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:50:13 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"204-dUTLBsJiVUQT2ipzRHb6LKqR2bo\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::84zh9-1783540211561-c951f36e6d7c"
+                },
+                {
+                  "key": "content-length",
+                  "value": "516"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Technician retrieved successfully\",\n    \"data\": {\n        \"id\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n        \"userId\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n        \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n        \"experience\": \"5 years\",\n        \"location\": \"Magura, Bangladesh\",\n        \"hourlyRate\": 1500,\n        \"averageRating\": 0,\n        \"totalReviews\": 0,\n        \"completedJobs\": 0,\n        \"createdAt\": \"2026-07-07T06:12:48.702Z\",\n        \"updatedAt\": \"2026-07-07T06:15:16.726Z\",\n        \"reviews\": []\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get-Booking-By-TechnicianId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/technician/bookings",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "technician",
+                "bookings"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get-Booking-By-TechnicianId",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/technician/bookings",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "technician",
+                    "bookings"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:50:48 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"162e-TYXEbhFV9pLTfFqWjqZBgdkXEl8\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::kqbg6-1783540244331-6af4d69e623c"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Technician bookings retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"6ba3bab5-c436-487a-97b4-9cd060db2545\",\n            \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\n            \"status\": \"REQUESTED\",\n            \"totalPrice\": 12000,\n            \"notes\": \"AC is not cooling properly, possible gas refill needed.\",\n            \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"serviceId\": \"ecaaec11-db83-4f45-8c9b-5aeefe355508\",\n            \"createdAt\": \"2026-07-07T08:29:34.216Z\",\n            \"updatedAt\": \"2026-07-07T08:29:34.216Z\",\n            \"service\": {\n                \"id\": \"ecaaec11-db83-4f45-8c9b-5aeefe355508\",\n                \"title\": \"Office Shifting\",\n                \"description\": \"Office furniture, equipment, and document moving service.\",\n                \"price\": 12000,\n                \"duration\": 360,\n                \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"categoryId\": \"d7af3bb6-d76d-4cf5-ae74-55eacd03d4fb\",\n                \"createdAt\": \"2026-07-07T06:05:41.710Z\",\n                \"updatedAt\": \"2026-07-07T06:05:41.710Z\"\n            },\n            \"customer\": {\n                \"id\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n                \"name\": \"John Customer\",\n                \"email\": \"john.customer@example.com\",\n                \"phone\": \"01712345678\",\n                \"role\": \"CUSTOMER\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-06T13:55:30.668Z\",\n                \"updatedAt\": \"2026-07-07T05:26:02.357Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"81658b2d-b099-4ac7-af1b-e7e059b1451a\",\n            \"bookingDate\": \"2026-07-08T10:00:00.000Z\",\n            \"status\": \"COMPLETED\",\n            \"totalPrice\": 800,\n            \"notes\": \"Customer reported faulty switches in the bedroom.\",\n            \"customerAddress\": \"House 12, Road 5, Dhanmondi, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"serviceId\": \"1b3b8d1a-d335-4025-a9c3-598ec5773a91\",\n            \"createdAt\": \"2026-07-07T07:52:49.178Z\",\n            \"updatedAt\": \"2026-07-07T11:49:07.256Z\",\n            \"service\": {\n                \"id\": \"1b3b8d1a-d335-4025-a9c3-598ec5773a91\",\n                \"title\": \"Switch Board Repair\",\n                \"description\": \"Repair or replacement of faulty electrical switch boards.\",\n                \"price\": 800,\n                \"duration\": 45,\n                \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"categoryId\": \"d30c4b68-5fbb-4c30-8f08-fd959a609adc\",\n                \"createdAt\": \"2026-07-07T06:02:23.606Z\",\n                \"updatedAt\": \"2026-07-07T06:02:23.606Z\"\n            },\n            \"customer\": {\n                \"id\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n                \"name\": \"John Customer\",\n                \"email\": \"john.customer@example.com\",\n                \"phone\": \"01712345678\",\n                \"role\": \"CUSTOMER\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-06T13:55:30.668Z\",\n                \"updatedAt\": \"2026-07-07T05:26:02.357Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"ef100142-341b-405f-9607-5e9ed6c7ce5d\",\n            \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\n            \"status\": \"PAID\",\n            \"totalPrice\": 1200,\n            \"notes\": \"AC is not cooling properly, possible gas refill needed.\",\n            \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"serviceId\": \"8d8a0a76-2cef-4526-909e-b2df95e3a372\",\n            \"createdAt\": \"2026-07-07T08:28:37.161Z\",\n            \"updatedAt\": \"2026-07-08T13:01:31.988Z\",\n            \"service\": {\n                \"id\": \"8d8a0a76-2cef-4526-909e-b2df95e3a372\",\n                \"title\": \"AC General Service\",\n                \"description\": \"Complete AC cleaning, filter wash, and basic performance check.\",\n                \"price\": 1200,\n                \"duration\": 60,\n                \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"categoryId\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n                \"createdAt\": \"2026-07-07T08:26:49.645Z\",\n                \"updatedAt\": \"2026-07-07T08:26:49.645Z\"\n            },\n            \"customer\": {\n                \"id\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n                \"name\": \"John Customer\",\n                \"email\": \"john.customer@example.com\",\n                \"phone\": \"01712345678\",\n                \"role\": \"CUSTOMER\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-06T13:55:30.668Z\",\n                \"updatedAt\": \"2026-07-07T05:26:02.357Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Technician-Update-Booking-Status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": \"IN_PROGRESS\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/technician/bookings/ef100142-341b-405f-9607-5e9ed6c7ce5d",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "technician",
+                "bookings",
+                "ef100142-341b-405f-9607-5e9ed6c7ce5d"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Technician-Update-Booking-Status",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"status\": \"IN_PROGRESS\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/technician/bookings/ef100142-341b-405f-9607-5e9ed6c7ce5d",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "technician",
+                    "bookings",
+                    "ef100142-341b-405f-9607-5e9ed6c7ce5d"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 500
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:54:42 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"208-GBekS9bQfUyfyzsMEWr/wMsMqno\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::rn6wv-1783540481567-dff9bea034b5"
+                },
+                {
+                  "key": "content-length",
+                  "value": "520"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"statusCode\": 500,\n    \"name\": \"Error\",\n    \"message\": \"You are not authorized to update this booking\",\n    \"error\": \"Error: You are not authorized to update this booking\\n    at Object.updateBookingStatus (file:///var/task/dist/src/modules/technician/technician.service.js:216:15)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\\n    at async file:///var/task/dist/src/modules/technician/technician.controller.js:62:28\\n    at async file:///var/task/dist/src/utils/catchAsync.js:4:13\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Create-Category",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"PC Repairs\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/admin/category",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "category"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create-Category",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"PC Repairs\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/admin/category",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "category"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 201
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:55:52 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"e2-ADRYh27WV68PVMYgWq3pqyzow6c\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::8tp9k-1783540550327-9dce1c0af108"
+                },
+                {
+                  "key": "content-length",
+                  "value": "226"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 201,\n    \"message\": \"Category created successfully\",\n    \"data\": {\n        \"id\": \"f66ab214-9376-4d8b-889b-46e30b9397ed\",\n        \"name\": \"PC Repairs\",\n        \"createdAt\": \"2026-07-08T19:55:52.455Z\",\n        \"updatedAt\": \"2026-07-08T19:55:52.455Z\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get-All-Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/admin/users",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "users"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get-All-Categories",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/admin/users",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "users"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:56:14 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"66e-9wum16af8sYeB8tKS5+USk1ZTmU\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::hl2w4-1783540572118-c81c21beaf5d"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Users retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n            \"name\": \"Mike Technician\",\n            \"email\": \"mike.technician@example.com\",\n            \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n            \"phone\": \"01812345678\",\n            \"role\": \"TECHNICIAN\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n            \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n        },\n        {\n            \"id\": \"4663cf9a-ce16-48ad-ad85-c2a6157d55c7\",\n            \"name\": \"Akash Admin\",\n            \"email\": \"akash.admin@gmail.com\",\n            \"password\": \"$2b$10$HpASFbbbZ92yb.raUdO33OU85ZyPWkEjDKngZd5/gvYVDrwvpLUze\",\n            \"phone\": \"01772295034\",\n            \"role\": \"ADMIN\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-07T04:38:34.928Z\",\n            \"updatedAt\": \"2026-07-07T04:38:34.928Z\"\n        },\n        {\n            \"id\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"name\": \"John Customer\",\n            \"email\": \"john.customer@example.com\",\n            \"password\": \"$2b$10$bsIbEM2kfIKZejCqHJwYyOzrOhM/GTMWzaz4Z7Qg031NJIgX3Kfq.\",\n            \"phone\": \"01712345678\",\n            \"role\": \"CUSTOMER\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-06T13:55:30.668Z\",\n            \"updatedAt\": \"2026-07-07T05:26:02.357Z\"\n        },\n        {\n            \"id\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n            \"name\": \"Md Riaz\",\n            \"email\": \"riaz.technician@gmail.com\",\n            \"password\": \"$2b$10$u.bDIh7LXPSF20V8HR2UgeGpGO4Ej5HIW3o8kOrzM8Eh6/6Dn95hS\",\n            \"phone\": \"01772295094\",\n            \"role\": \"TECHNICIAN\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-07T06:12:48.643Z\",\n            \"updatedAt\": \"2026-07-07T06:12:48.643Z\"\n        },\n        {\n            \"id\": \"aa7b6565-e7a3-435b-a237-6d510ac645fc\",\n            \"name\": \"Md Meraz\",\n            \"email\": \"meraz.customern@gmail.com\",\n            \"password\": \"$2b$10$GhMCyoY9NMZn7D37ZHyRWOqULRJW.1SUzM8VM1.4oesxH5OwoIGBi\",\n            \"phone\": \"01772295034\",\n            \"role\": \"CUSTOMER\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-08T19:41:47.408Z\",\n            \"updatedAt\": \"2026-07-08T19:41:47.408Z\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get-All-Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/admin/users",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "users"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get-All-Users",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/admin/users",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "users"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:58:21 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"66e-9wum16af8sYeB8tKS5+USk1ZTmU\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::g6rxx-1783540699566-e62928e3176c"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Users retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n            \"name\": \"Mike Technician\",\n            \"email\": \"mike.technician@example.com\",\n            \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n            \"phone\": \"01812345678\",\n            \"role\": \"TECHNICIAN\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n            \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n        },\n        {\n            \"id\": \"4663cf9a-ce16-48ad-ad85-c2a6157d55c7\",\n            \"name\": \"Akash Admin\",\n            \"email\": \"akash.admin@gmail.com\",\n            \"password\": \"$2b$10$HpASFbbbZ92yb.raUdO33OU85ZyPWkEjDKngZd5/gvYVDrwvpLUze\",\n            \"phone\": \"01772295034\",\n            \"role\": \"ADMIN\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-07T04:38:34.928Z\",\n            \"updatedAt\": \"2026-07-07T04:38:34.928Z\"\n        },\n        {\n            \"id\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"name\": \"John Customer\",\n            \"email\": \"john.customer@example.com\",\n            \"password\": \"$2b$10$bsIbEM2kfIKZejCqHJwYyOzrOhM/GTMWzaz4Z7Qg031NJIgX3Kfq.\",\n            \"phone\": \"01712345678\",\n            \"role\": \"CUSTOMER\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-06T13:55:30.668Z\",\n            \"updatedAt\": \"2026-07-07T05:26:02.357Z\"\n        },\n        {\n            \"id\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n            \"name\": \"Md Riaz\",\n            \"email\": \"riaz.technician@gmail.com\",\n            \"password\": \"$2b$10$u.bDIh7LXPSF20V8HR2UgeGpGO4Ej5HIW3o8kOrzM8Eh6/6Dn95hS\",\n            \"phone\": \"01772295094\",\n            \"role\": \"TECHNICIAN\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-07T06:12:48.643Z\",\n            \"updatedAt\": \"2026-07-07T06:12:48.643Z\"\n        },\n        {\n            \"id\": \"aa7b6565-e7a3-435b-a237-6d510ac645fc\",\n            \"name\": \"Md Meraz\",\n            \"email\": \"meraz.customern@gmail.com\",\n            \"password\": \"$2b$10$GhMCyoY9NMZn7D37ZHyRWOqULRJW.1SUzM8VM1.4oesxH5OwoIGBi\",\n            \"phone\": \"01772295034\",\n            \"role\": \"CUSTOMER\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-08T19:41:47.408Z\",\n            \"updatedAt\": \"2026-07-08T19:41:47.408Z\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update-User-Status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": \"ACTIVE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/admin/users/2c9ac8b7-467c-441a-bacc-ac39ce5217fb",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "users",
+                "2c9ac8b7-467c-441a-bacc-ac39ce5217fb"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update-User-Status",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"status\": \"ACTIVE\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/admin/users/2c9ac8b7-467c-441a-bacc-ac39ce5217fb",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    "2c9ac8b7-467c-441a-bacc-ac39ce5217fb"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:59:04 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"15d-5+eCz8teuGnWA5hyCslQtwxbjHY\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::44w2g-1783540741538-8a14880b5e78"
+                },
+                {
+                  "key": "content-length",
+                  "value": "349"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"User role updated successfully\",\n    \"data\": {\n        \"id\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n        \"name\": \"John Customer\",\n        \"email\": \"john.customer@example.com\",\n        \"phone\": \"01712345678\",\n        \"role\": \"CUSTOMER\",\n        \"status\": \"ACTIVE\",\n        \"createdAt\": \"2026-07-06T13:55:30.668Z\",\n        \"updatedAt\": \"2026-07-08T19:59:03.831Z\",\n        \"technicianProfile\": null\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get-All-Bookings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/admin/bookings",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "bookings"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get-All-Bookings",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/admin/bookings",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "admin",
+                    "bookings"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 19:59:28 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"247f-0nGjOLYxhmdricdvCTTQibSlCTc\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::jw6xz-1783540764135-ed50667cf57b"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Bookings retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"3d6a670a-3dfd-451f-b594-5cdfe763689b\",\n            \"bookingDate\": \"2026-07-09T12:00:00.000Z\",\n            \"status\": \"REQUESTED\",\n            \"totalPrice\": 1000,\n            \"notes\": \"Install one ceiling fan in the living room.\",\n            \"customerAddress\": \"House 22, Sector 7, Uttara, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n            \"serviceId\": \"b39f9add-5365-491d-8af7-ac1c137d53e6\",\n            \"createdAt\": \"2026-07-07T07:55:09.248Z\",\n            \"updatedAt\": \"2026-07-07T07:55:09.248Z\",\n            \"service\": {\n                \"id\": \"b39f9add-5365-491d-8af7-ac1c137d53e6\",\n                \"title\": \"Fan Installation\",\n                \"description\": \"Ceiling fan installation with wiring and fitting.\",\n                \"price\": 1000,\n                \"duration\": 60,\n                \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n                \"categoryId\": \"d30c4b68-5fbb-4c30-8f08-fd959a609adc\",\n                \"createdAt\": \"2026-07-07T06:16:20.339Z\",\n                \"updatedAt\": \"2026-07-07T06:16:20.339Z\"\n            },\n            \"customer\": {\n                \"id\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n                \"name\": \"John Customer\",\n                \"email\": \"john.customer@example.com\",\n                \"phone\": \"01712345678\",\n                \"role\": \"CUSTOMER\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-06T13:55:30.668Z\",\n                \"updatedAt\": \"2026-07-08T19:59:03.831Z\"\n            },\n            \"technician\": {\n                \"id\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n                \"userId\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"5 years\",\n                \"location\": \"Magura, Bangladesh\",\n                \"hourlyRate\": 1500,\n                \"averageRating\": 0,\n                \"totalReviews\": 0,\n                \"completedJobs\": 0,\n                \"createdAt\": \"2026-07-07T06:12:48.702Z\",\n                \"updatedAt\": \"2026-07-07T06:15:16.726Z\",\n                \"user\": {\n                    \"id\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                    \"name\": \"Md Riaz\",\n                    \"email\": \"riaz.technician@gmail.com\",\n                    \"password\": \"$2b$10$u.bDIh7LXPSF20V8HR2UgeGpGO4Ej5HIW3o8kOrzM8Eh6/6Dn95hS\",\n                    \"phone\": \"01772295094\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-07T06:12:48.643Z\",\n                    \"updatedAt\": \"2026-07-07T06:12:48.643Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"041af83c-e025-4642-b85d-c60e703e2cad\",\n            \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\n            \"status\": \"REQUESTED\",\n            \"totalPrice\": 3500,\n            \"notes\": \"AC is not cooling properly, possible gas refill needed.\",\n            \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n            \"serviceId\": \"ef1e1583-ecac-4dc0-8e98-0a5ba014ddbf\",\n            \"createdAt\": \"2026-07-07T07:56:08.320Z\",\n            \"updatedAt\": \"2026-07-07T07:56:08.320Z\",\n            \"service\": {\n                \"id\": \"ef1e1583-ecac-4dc0-8e98-0a5ba014ddbf\",\n                \"title\": \"AC Gas Refill\",\n                \"description\": \"Gas refill service for split or window AC units.\",\n                \"price\": 3500,\n                \"duration\": 90,\n                \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n                \"categoryId\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n                \"createdAt\": \"2026-07-07T06:17:33.494Z\",\n                \"updatedAt\": \"2026-07-07T06:17:33.494Z\"\n            },\n            \"customer\": {\n                \"id\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n                \"name\": \"John Customer\",\n                \"email\": \"john.customer@example.com\",\n                \"phone\": \"01712345678\",\n                \"role\": \"CUSTOMER\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-06T13:55:30.668Z\",\n                \"updatedAt\": \"2026-07-08T19:59:03.831Z\"\n            },\n            \"technician\": {\n                \"id\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n                \"userId\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"5 years\",\n                \"location\": \"Magura, Bangladesh\",\n                \"hourlyRate\": 1500,\n                \"averageRating\": 0,\n                \"totalReviews\": 0,\n                \"completedJobs\": 0,\n                \"createdAt\": \"2026-07-07T06:12:48.702Z\",\n                \"updatedAt\": \"2026-07-07T06:15:16.726Z\",\n                \"user\": {\n                    \"id\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                    \"name\": \"Md Riaz\",\n                    \"email\": \"riaz.technician@gmail.com\",\n                    \"password\": \"$2b$10$u.bDIh7LXPSF20V8HR2UgeGpGO4Ej5HIW3o8kOrzM8Eh6/6Dn95hS\",\n                    \"phone\": \"01772295094\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-07T06:12:48.643Z\",\n                    \"updatedAt\": \"2026-07-07T06:12:48.643Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"6ba3bab5-c436-487a-97b4-9cd060db2545\",\n            \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\n            \"status\": \"REQUESTED\",\n            \"totalPrice\": 12000,\n            \"notes\": \"AC is not cooling properly, possible gas refill needed.\",\n            \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"serviceId\": \"ecaaec11-db83-4f45-8c9b-5aeefe355508\",\n            \"createdAt\": \"2026-07-07T08:29:34.216Z\",\n            \"updatedAt\": \"2026-07-07T08:29:34.216Z\",\n            \"service\": {\n                \"id\": \"ecaaec11-db83-4f45-8c9b-5aeefe355508\",\n                \"title\": \"Office Shifting\",\n                \"description\": \"Office furniture, equipment, and document moving service.\",\n                \"price\": 12000,\n                \"duration\": 360,\n                \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"categoryId\": \"d7af3bb6-d76d-4cf5-ae74-55eacd03d4fb\",\n                \"createdAt\": \"2026-07-07T06:05:41.710Z\",\n                \"updatedAt\": \"2026-07-07T06:05:41.710Z\"\n            },\n            \"customer\": {\n                \"id\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n                \"name\": \"John Customer\",\n                \"email\": \"john.customer@example.com\",\n                \"phone\": \"01712345678\",\n                \"role\": \"CUSTOMER\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-06T13:55:30.668Z\",\n                \"updatedAt\": \"2026-07-08T19:59:03.831Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"81658b2d-b099-4ac7-af1b-e7e059b1451a\",\n            \"bookingDate\": \"2026-07-08T10:00:00.000Z\",\n            \"status\": \"COMPLETED\",\n            \"totalPrice\": 800,\n            \"notes\": \"Customer reported faulty switches in the bedroom.\",\n            \"customerAddress\": \"House 12, Road 5, Dhanmondi, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"serviceId\": \"1b3b8d1a-d335-4025-a9c3-598ec5773a91\",\n            \"createdAt\": \"2026-07-07T07:52:49.178Z\",\n            \"updatedAt\": \"2026-07-07T11:49:07.256Z\",\n            \"service\": {\n                \"id\": \"1b3b8d1a-d335-4025-a9c3-598ec5773a91\",\n                \"title\": \"Switch Board Repair\",\n                \"description\": \"Repair or replacement of faulty electrical switch boards.\",\n                \"price\": 800,\n                \"duration\": 45,\n                \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"categoryId\": \"d30c4b68-5fbb-4c30-8f08-fd959a609adc\",\n                \"createdAt\": \"2026-07-07T06:02:23.606Z\",\n                \"updatedAt\": \"2026-07-07T06:02:23.606Z\"\n            },\n            \"customer\": {\n                \"id\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n                \"name\": \"John Customer\",\n                \"email\": \"john.customer@example.com\",\n                \"phone\": \"01712345678\",\n                \"role\": \"CUSTOMER\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-06T13:55:30.668Z\",\n                \"updatedAt\": \"2026-07-08T19:59:03.831Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"ef100142-341b-405f-9607-5e9ed6c7ce5d\",\n            \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\n            \"status\": \"IN_PROGRESS\",\n            \"totalPrice\": 1200,\n            \"notes\": \"AC is not cooling properly, possible gas refill needed.\",\n            \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"serviceId\": \"8d8a0a76-2cef-4526-909e-b2df95e3a372\",\n            \"createdAt\": \"2026-07-07T08:28:37.161Z\",\n            \"updatedAt\": \"2026-07-08T19:52:10.020Z\",\n            \"service\": {\n                \"id\": \"8d8a0a76-2cef-4526-909e-b2df95e3a372\",\n                \"title\": \"AC General Service\",\n                \"description\": \"Complete AC cleaning, filter wash, and basic performance check.\",\n                \"price\": 1200,\n                \"duration\": 60,\n                \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"categoryId\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n                \"createdAt\": \"2026-07-07T08:26:49.645Z\",\n                \"updatedAt\": \"2026-07-07T08:26:49.645Z\"\n            },\n            \"customer\": {\n                \"id\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n                \"name\": \"John Customer\",\n                \"email\": \"john.customer@example.com\",\n                \"phone\": \"01712345678\",\n                \"role\": \"CUSTOMER\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-06T13:55:30.668Z\",\n                \"updatedAt\": \"2026-07-08T19:59:03.831Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Service",
+      "item": [
+        {
+          "name": "Create-Service",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n   \"title\": \"PC General Service\",\r\n    \"description\": \"Complete PC cleaning, filter wash, and basic performance check.\",\r\n    \"price\": 200,\r\n    \"duration\": 20,\r\n    \"categoryId\": \"f66ab214-9376-4d8b-889b-46e30b9397ed\"\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/service",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "service"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create-Service",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": " {\r\n   \"title\": \"PC General Service\",\r\n    \"description\": \"Complete PC cleaning, filter wash, and basic performance check.\",\r\n    \"price\": 200,\r\n    \"duration\": 20,\r\n    \"categoryId\": \"f66ab214-9376-4d8b-889b-46e30b9397ed\"\r\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/service",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "service"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 201
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 20:01:47 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"406-myRTyDZKPKlveDMZq6vgoLbLn2o\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::zdp8g-1783540905202-658588ca10aa"
+                },
+                {
+                  "key": "content-length",
+                  "value": "1030"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 201,\n    \"message\": \"Service created successfully\",\n    \"data\": {\n        \"id\": \"ec97bedb-052a-4e79-8e3e-680ac92a5948\",\n        \"title\": \"PC General Service\",\n        \"description\": \"Complete PC cleaning, filter wash, and basic performance check.\",\n        \"price\": 200,\n        \"duration\": 20,\n        \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n        \"categoryId\": \"f66ab214-9376-4d8b-889b-46e30b9397ed\",\n        \"createdAt\": \"2026-07-08T20:01:46.105Z\",\n        \"updatedAt\": \"2026-07-08T20:01:46.105Z\",\n        \"category\": {\n            \"id\": \"f66ab214-9376-4d8b-889b-46e30b9397ed\",\n            \"name\": \"PC Repairs\",\n            \"createdAt\": \"2026-07-08T19:55:52.455Z\",\n            \"updatedAt\": \"2026-07-08T19:55:52.455Z\"\n        },\n        \"technician\": {\n            \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n            \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n            \"experience\": \"1 years\",\n            \"location\": \"Khulna, Bangladesh\",\n            \"hourlyRate\": 900,\n            \"averageRating\": 5,\n            \"totalReviews\": 1,\n            \"completedJobs\": 1,\n            \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n            \"updatedAt\": \"2026-07-08T19:46:57.193Z\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get-All-Services",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/service",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "service"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "AC Repair",
+                  "disabled": true
+                },
+                {
+                  "key": "location",
+                  "value": "Dhaka, Bangladesh",
+                  "disabled": true
+                },
+                {
+                  "key": "searchTerm",
+                  "value": "AC General",
+                  "disabled": true
+                },
+                {
+                  "key": "minPrice",
+                  "value": "800",
+                  "disabled": true
+                },
+                {
+                  "key": "maxPrice",
+                  "value": "1200",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get-All-Services",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/service",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "service"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "AC Repair",
+                      "disabled": true
+                    },
+                    {
+                      "key": "location",
+                      "value": "Dhaka, Bangladesh",
+                      "disabled": true
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "AC General",
+                      "disabled": true
+                    },
+                    {
+                      "key": "minPrice",
+                      "value": "800",
+                      "disabled": true
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "1200",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 20:02:21 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"2d1c-gMLHQi/MrMPt3fMvQjRN4DsQwwk\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::jrqwm-1783540936911-f83887db0865"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Services retrieved successfully\",\n    \"meta\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 9\n    },\n    \"data\": [\n        {\n            \"id\": \"ec97bedb-052a-4e79-8e3e-680ac92a5948\",\n            \"title\": \"PC General Service\",\n            \"description\": \"Complete PC cleaning, filter wash, and basic performance check.\",\n            \"price\": 200,\n            \"duration\": 20,\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"categoryId\": \"f66ab214-9376-4d8b-889b-46e30b9397ed\",\n            \"createdAt\": \"2026-07-08T20:01:46.105Z\",\n            \"updatedAt\": \"2026-07-08T20:01:46.105Z\",\n            \"category\": {\n                \"id\": \"f66ab214-9376-4d8b-889b-46e30b9397ed\",\n                \"name\": \"PC Repairs\",\n                \"createdAt\": \"2026-07-08T19:55:52.455Z\",\n                \"updatedAt\": \"2026-07-08T19:55:52.455Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"8d8a0a76-2cef-4526-909e-b2df95e3a372\",\n            \"title\": \"AC General Service\",\n            \"description\": \"Complete AC cleaning, filter wash, and basic performance check.\",\n            \"price\": 1200,\n            \"duration\": 60,\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"categoryId\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n            \"createdAt\": \"2026-07-07T08:26:49.645Z\",\n            \"updatedAt\": \"2026-07-07T08:26:49.645Z\",\n            \"category\": {\n                \"id\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n                \"name\": \"AC Repair\",\n                \"createdAt\": \"2026-07-07T04:41:28.377Z\",\n                \"updatedAt\": \"2026-07-07T04:41:28.377Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"c14206a9-9fc7-4df5-8c77-c2c930288179\",\n            \"title\": \"AC General Service\",\n            \"description\": \"Complete AC cleaning, filter wash, and basic performance check.\",\n            \"price\": 1200,\n            \"duration\": 60,\n            \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n            \"categoryId\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n            \"createdAt\": \"2026-07-07T06:18:02.825Z\",\n            \"updatedAt\": \"2026-07-07T06:18:02.825Z\",\n            \"category\": {\n                \"id\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n                \"name\": \"AC Repair\",\n                \"createdAt\": \"2026-07-07T04:41:28.377Z\",\n                \"updatedAt\": \"2026-07-07T04:41:28.377Z\"\n            },\n            \"technician\": {\n                \"id\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n                \"userId\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"5 years\",\n                \"location\": \"Magura, Bangladesh\",\n                \"hourlyRate\": 1500,\n                \"averageRating\": 0,\n                \"totalReviews\": 0,\n                \"completedJobs\": 0,\n                \"createdAt\": \"2026-07-07T06:12:48.702Z\",\n                \"updatedAt\": \"2026-07-07T06:15:16.726Z\",\n                \"user\": {\n                    \"id\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                    \"name\": \"Md Riaz\",\n                    \"email\": \"riaz.technician@gmail.com\",\n                    \"password\": \"$2b$10$u.bDIh7LXPSF20V8HR2UgeGpGO4Ej5HIW3o8kOrzM8Eh6/6Dn95hS\",\n                    \"phone\": \"01772295094\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-07T06:12:48.643Z\",\n                    \"updatedAt\": \"2026-07-07T06:12:48.643Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"ef1e1583-ecac-4dc0-8e98-0a5ba014ddbf\",\n            \"title\": \"AC Gas Refill\",\n            \"description\": \"Gas refill service for split or window AC units.\",\n            \"price\": 3500,\n            \"duration\": 90,\n            \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n            \"categoryId\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n            \"createdAt\": \"2026-07-07T06:17:33.494Z\",\n            \"updatedAt\": \"2026-07-07T06:17:33.494Z\",\n            \"category\": {\n                \"id\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n                \"name\": \"AC Repair\",\n                \"createdAt\": \"2026-07-07T04:41:28.377Z\",\n                \"updatedAt\": \"2026-07-07T04:41:28.377Z\"\n            },\n            \"technician\": {\n                \"id\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n                \"userId\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"5 years\",\n                \"location\": \"Magura, Bangladesh\",\n                \"hourlyRate\": 1500,\n                \"averageRating\": 0,\n                \"totalReviews\": 0,\n                \"completedJobs\": 0,\n                \"createdAt\": \"2026-07-07T06:12:48.702Z\",\n                \"updatedAt\": \"2026-07-07T06:15:16.726Z\",\n                \"user\": {\n                    \"id\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                    \"name\": \"Md Riaz\",\n                    \"email\": \"riaz.technician@gmail.com\",\n                    \"password\": \"$2b$10$u.bDIh7LXPSF20V8HR2UgeGpGO4Ej5HIW3o8kOrzM8Eh6/6Dn95hS\",\n                    \"phone\": \"01772295094\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-07T06:12:48.643Z\",\n                    \"updatedAt\": \"2026-07-07T06:12:48.643Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"b39f9add-5365-491d-8af7-ac1c137d53e6\",\n            \"title\": \"Fan Installation\",\n            \"description\": \"Ceiling fan installation with wiring and fitting.\",\n            \"price\": 1000,\n            \"duration\": 60,\n            \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n            \"categoryId\": \"d30c4b68-5fbb-4c30-8f08-fd959a609adc\",\n            \"createdAt\": \"2026-07-07T06:16:20.339Z\",\n            \"updatedAt\": \"2026-07-07T06:16:20.339Z\",\n            \"category\": {\n                \"id\": \"d30c4b68-5fbb-4c30-8f08-fd959a609adc\",\n                \"name\": \"Electrical\",\n                \"createdAt\": \"2026-07-07T04:40:13.089Z\",\n                \"updatedAt\": \"2026-07-07T04:40:13.089Z\"\n            },\n            \"technician\": {\n                \"id\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n                \"userId\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"5 years\",\n                \"location\": \"Magura, Bangladesh\",\n                \"hourlyRate\": 1500,\n                \"averageRating\": 0,\n                \"totalReviews\": 0,\n                \"completedJobs\": 0,\n                \"createdAt\": \"2026-07-07T06:12:48.702Z\",\n                \"updatedAt\": \"2026-07-07T06:15:16.726Z\",\n                \"user\": {\n                    \"id\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                    \"name\": \"Md Riaz\",\n                    \"email\": \"riaz.technician@gmail.com\",\n                    \"password\": \"$2b$10$u.bDIh7LXPSF20V8HR2UgeGpGO4Ej5HIW3o8kOrzM8Eh6/6Dn95hS\",\n                    \"phone\": \"01772295094\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-07T06:12:48.643Z\",\n                    \"updatedAt\": \"2026-07-07T06:12:48.643Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"68e72636-f253-48e7-b7f2-6b0f431fedaf\",\n            \"title\": \"Furniture Moving\",\n            \"description\": \"Moving large furniture items within or between locations.\",\n            \"price\": 3000,\n            \"duration\": 120,\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"categoryId\": \"d7af3bb6-d76d-4cf5-ae74-55eacd03d4fb\",\n            \"createdAt\": \"2026-07-07T06:10:19.042Z\",\n            \"updatedAt\": \"2026-07-07T06:10:19.042Z\",\n            \"category\": {\n                \"id\": \"d7af3bb6-d76d-4cf5-ae74-55eacd03d4fb\",\n                \"name\": \"Home Shifting\",\n                \"createdAt\": \"2026-07-07T04:41:49.552Z\",\n                \"updatedAt\": \"2026-07-07T04:41:49.552Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"ecaaec11-db83-4f45-8c9b-5aeefe355508\",\n            \"title\": \"Office Shifting\",\n            \"description\": \"Office furniture, equipment, and document moving service.\",\n            \"price\": 12000,\n            \"duration\": 360,\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"categoryId\": \"d7af3bb6-d76d-4cf5-ae74-55eacd03d4fb\",\n            \"createdAt\": \"2026-07-07T06:05:41.710Z\",\n            \"updatedAt\": \"2026-07-07T06:05:41.710Z\",\n            \"category\": {\n                \"id\": \"d7af3bb6-d76d-4cf5-ae74-55eacd03d4fb\",\n                \"name\": \"Home Shifting\",\n                \"createdAt\": \"2026-07-07T04:41:49.552Z\",\n                \"updatedAt\": \"2026-07-07T04:41:49.552Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"1bc48f0d-2771-4cb8-9a61-e1d356c13e6a\",\n            \"title\": \"1 Bedroom Home Shifting\",\n            \"description\": \"Packing and moving service for a small one-bedroom home.\",\n            \"price\": 6000,\n            \"duration\": 240,\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"categoryId\": \"d7af3bb6-d76d-4cf5-ae74-55eacd03d4fb\",\n            \"createdAt\": \"2026-07-07T06:04:22.077Z\",\n            \"updatedAt\": \"2026-07-07T06:04:22.077Z\",\n            \"category\": {\n                \"id\": \"d7af3bb6-d76d-4cf5-ae74-55eacd03d4fb\",\n                \"name\": \"Home Shifting\",\n                \"createdAt\": \"2026-07-07T04:41:49.552Z\",\n                \"updatedAt\": \"2026-07-07T04:41:49.552Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"1b3b8d1a-d335-4025-a9c3-598ec5773a91\",\n            \"title\": \"Switch Board Repair\",\n            \"description\": \"Repair or replacement of faulty electrical switch boards.\",\n            \"price\": 800,\n            \"duration\": 45,\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"categoryId\": \"d30c4b68-5fbb-4c30-8f08-fd959a609adc\",\n            \"createdAt\": \"2026-07-07T06:02:23.606Z\",\n            \"updatedAt\": \"2026-07-07T06:02:23.606Z\",\n            \"category\": {\n                \"id\": \"d30c4b68-5fbb-4c30-8f08-fd959a609adc\",\n                \"name\": \"Electrical\",\n                \"createdAt\": \"2026-07-07T04:40:13.089Z\",\n                \"updatedAt\": \"2026-07-07T04:40:13.089Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Get-All-Cagetories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/category",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "category"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get-All-Cagetories",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/category",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "category"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 20:03:02 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"3b6-0azwyBd2d/u/Abag/bpe29+ey0Y\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::hd92s-1783540980289-6d4d4d377fc1"
+                },
+                {
+                  "key": "content-length",
+                  "value": "950"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Categories retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"2785526b-8bb6-4d1e-8551-ced533bb97c2\",\n            \"name\": \"Plumbing\",\n            \"createdAt\": \"2026-07-07T04:39:50.998Z\",\n            \"updatedAt\": \"2026-07-07T04:39:50.998Z\"\n        },\n        {\n            \"id\": \"d30c4b68-5fbb-4c30-8f08-fd959a609adc\",\n            \"name\": \"Electrical\",\n            \"createdAt\": \"2026-07-07T04:40:13.089Z\",\n            \"updatedAt\": \"2026-07-07T04:40:13.089Z\"\n        },\n        {\n            \"id\": \"ede7c2e0-3718-4a5a-b80b-5742db502923\",\n            \"name\": \"Cleaning\",\n            \"createdAt\": \"2026-07-07T04:41:08.433Z\",\n            \"updatedAt\": \"2026-07-07T04:41:08.433Z\"\n        },\n        {\n            \"id\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n            \"name\": \"AC Repair\",\n            \"createdAt\": \"2026-07-07T04:41:28.377Z\",\n            \"updatedAt\": \"2026-07-07T04:41:28.377Z\"\n        },\n        {\n            \"id\": \"d7af3bb6-d76d-4cf5-ae74-55eacd03d4fb\",\n            \"name\": \"Home Shifting\",\n            \"createdAt\": \"2026-07-07T04:41:49.552Z\",\n            \"updatedAt\": \"2026-07-07T04:41:49.552Z\"\n        },\n        {\n            \"id\": \"f66ab214-9376-4d8b-889b-46e30b9397ed\",\n            \"name\": \"PC Repairs\",\n            \"createdAt\": \"2026-07-08T19:55:52.455Z\",\n            \"updatedAt\": \"2026-07-08T19:55:52.455Z\"\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "Create-Bookings",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n    \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\r\n    \"notes\": \"PC is not cooling properly, possible gas refill needed.\",\r\n    \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\r\n    \"serviceId\": \"ec97bedb-052a-4e79-8e3e-680ac92a5948\"\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/booking",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "booking"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create-Bookings",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": " {\r\n    \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\r\n    \"notes\": \"PC is not cooling properly, possible gas refill needed.\",\r\n    \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\r\n    \"serviceId\": \"ec97bedb-052a-4e79-8e3e-680ac92a5948\"\r\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/booking",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "booking"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 500
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 20:04:06 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"362-kzk10E5Pk7FW+msbKCVMRq9z6JY\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::rhbm2-1783541046743-603a42e3a990"
+                },
+                {
+                  "key": "content-length",
+                  "value": "866"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"statusCode\": 500,\n    \"name\": \"Error\",\n    \"message\": \"Forbidden! You don't have permission to access this resource.\",\n    \"error\": \"Error: Forbidden! You don't have permission to access this resource.\\n    at file:///var/task/dist/src/middleware/auth.js:21:19\\n    at file:///var/task/dist/src/utils/catchAsync.js:4:19\\n    at Layer.handleRequest (/var/task/node_modules/router/lib/layer.js:152:17)\\n    at next (/var/task/node_modules/router/lib/route.js:157:13)\\n    at Route.dispatch (/var/task/node_modules/router/lib/route.js:117:3)\\n    at handle (/var/task/node_modules/router/index.js:435:11)\\n    at Layer.handleRequest (/var/task/node_modules/router/lib/layer.js:152:17)\\n    at /var/task/node_modules/router/index.js:295:15\\n    at processParams (/var/task/node_modules/router/index.js:582:12)\\n    at next (/var/task/node_modules/router/index.js:291:5)\"\n}"
+            },
+            {
+              "name": "Create-Bookings",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": " {\r\n    \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\r\n    \"notes\": \"PC is not cooling properly, possible gas refill needed.\",\r\n    \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\r\n    \"serviceId\": \"ec97bedb-052a-4e79-8e3e-680ac92a5948\"\r\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/booking",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "booking"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 201
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 20:05:36 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"6a0-3jeH9xb0SDGhz1o6+a7P0S4lNFs\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::lgt2w-1783541132652-2ae8e0df7028"
+                },
+                {
+                  "key": "content-length",
+                  "value": "1696"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 201,\n    \"message\": \"Booking created successfully\",\n    \"data\": {\n        \"id\": \"46b10381-e478-43b4-89c1-82c4345c519d\",\n        \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\n        \"status\": \"REQUESTED\",\n        \"totalPrice\": 200,\n        \"notes\": \"PC is not cooling properly, possible gas refill needed.\",\n        \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\n        \"customerId\": \"aa7b6565-e7a3-435b-a237-6d510ac645fc\",\n        \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n        \"serviceId\": \"ec97bedb-052a-4e79-8e3e-680ac92a5948\",\n        \"createdAt\": \"2026-07-08T20:05:34.983Z\",\n        \"updatedAt\": \"2026-07-08T20:05:34.983Z\",\n        \"service\": {\n            \"id\": \"ec97bedb-052a-4e79-8e3e-680ac92a5948\",\n            \"title\": \"PC General Service\",\n            \"description\": \"Complete PC cleaning, filter wash, and basic performance check.\",\n            \"price\": 200,\n            \"duration\": 20,\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"categoryId\": \"f66ab214-9376-4d8b-889b-46e30b9397ed\",\n            \"createdAt\": \"2026-07-08T20:01:46.105Z\",\n            \"updatedAt\": \"2026-07-08T20:01:46.105Z\"\n        },\n        \"technician\": {\n            \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n            \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n            \"experience\": \"1 years\",\n            \"location\": \"Khulna, Bangladesh\",\n            \"hourlyRate\": 900,\n            \"averageRating\": 5,\n            \"totalReviews\": 1,\n            \"completedJobs\": 1,\n            \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n            \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n            \"user\": {\n                \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"name\": \"Mike Technician\",\n                \"email\": \"mike.technician@example.com\",\n                \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                \"phone\": \"01812345678\",\n                \"role\": \"TECHNICIAN\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n            }\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get-All-Bookings",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/booking",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "booking"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get-All-Bookings",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/booking",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "booking"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 20:06:08 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"25e2-dzZqPrlhyuBkkuoNNJ2hO1uRHgY\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::8nqwn-1783541164932-f06d35e9b6cc"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Bookings retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"3d6a670a-3dfd-451f-b594-5cdfe763689b\",\n            \"bookingDate\": \"2026-07-09T12:00:00.000Z\",\n            \"status\": \"REQUESTED\",\n            \"totalPrice\": 1000,\n            \"notes\": \"Install one ceiling fan in the living room.\",\n            \"customerAddress\": \"House 22, Sector 7, Uttara, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n            \"serviceId\": \"b39f9add-5365-491d-8af7-ac1c137d53e6\",\n            \"createdAt\": \"2026-07-07T07:55:09.248Z\",\n            \"updatedAt\": \"2026-07-07T07:55:09.248Z\",\n            \"service\": {\n                \"id\": \"b39f9add-5365-491d-8af7-ac1c137d53e6\",\n                \"title\": \"Fan Installation\",\n                \"description\": \"Ceiling fan installation with wiring and fitting.\",\n                \"price\": 1000,\n                \"duration\": 60,\n                \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n                \"categoryId\": \"d30c4b68-5fbb-4c30-8f08-fd959a609adc\",\n                \"createdAt\": \"2026-07-07T06:16:20.339Z\",\n                \"updatedAt\": \"2026-07-07T06:16:20.339Z\"\n            },\n            \"technician\": {\n                \"id\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n                \"userId\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"5 years\",\n                \"location\": \"Magura, Bangladesh\",\n                \"hourlyRate\": 1500,\n                \"averageRating\": 0,\n                \"totalReviews\": 0,\n                \"completedJobs\": 0,\n                \"createdAt\": \"2026-07-07T06:12:48.702Z\",\n                \"updatedAt\": \"2026-07-07T06:15:16.726Z\",\n                \"user\": {\n                    \"id\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                    \"name\": \"Md Riaz\",\n                    \"email\": \"riaz.technician@gmail.com\",\n                    \"password\": \"$2b$10$u.bDIh7LXPSF20V8HR2UgeGpGO4Ej5HIW3o8kOrzM8Eh6/6Dn95hS\",\n                    \"phone\": \"01772295094\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-07T06:12:48.643Z\",\n                    \"updatedAt\": \"2026-07-07T06:12:48.643Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"041af83c-e025-4642-b85d-c60e703e2cad\",\n            \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\n            \"status\": \"REQUESTED\",\n            \"totalPrice\": 3500,\n            \"notes\": \"AC is not cooling properly, possible gas refill needed.\",\n            \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n            \"serviceId\": \"ef1e1583-ecac-4dc0-8e98-0a5ba014ddbf\",\n            \"createdAt\": \"2026-07-07T07:56:08.320Z\",\n            \"updatedAt\": \"2026-07-07T07:56:08.320Z\",\n            \"service\": {\n                \"id\": \"ef1e1583-ecac-4dc0-8e98-0a5ba014ddbf\",\n                \"title\": \"AC Gas Refill\",\n                \"description\": \"Gas refill service for split or window AC units.\",\n                \"price\": 3500,\n                \"duration\": 90,\n                \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n                \"categoryId\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n                \"createdAt\": \"2026-07-07T06:17:33.494Z\",\n                \"updatedAt\": \"2026-07-07T06:17:33.494Z\"\n            },\n            \"technician\": {\n                \"id\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n                \"userId\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"5 years\",\n                \"location\": \"Magura, Bangladesh\",\n                \"hourlyRate\": 1500,\n                \"averageRating\": 0,\n                \"totalReviews\": 0,\n                \"completedJobs\": 0,\n                \"createdAt\": \"2026-07-07T06:12:48.702Z\",\n                \"updatedAt\": \"2026-07-07T06:15:16.726Z\",\n                \"user\": {\n                    \"id\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                    \"name\": \"Md Riaz\",\n                    \"email\": \"riaz.technician@gmail.com\",\n                    \"password\": \"$2b$10$u.bDIh7LXPSF20V8HR2UgeGpGO4Ej5HIW3o8kOrzM8Eh6/6Dn95hS\",\n                    \"phone\": \"01772295094\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-07T06:12:48.643Z\",\n                    \"updatedAt\": \"2026-07-07T06:12:48.643Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"6ba3bab5-c436-487a-97b4-9cd060db2545\",\n            \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\n            \"status\": \"REQUESTED\",\n            \"totalPrice\": 12000,\n            \"notes\": \"AC is not cooling properly, possible gas refill needed.\",\n            \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"serviceId\": \"ecaaec11-db83-4f45-8c9b-5aeefe355508\",\n            \"createdAt\": \"2026-07-07T08:29:34.216Z\",\n            \"updatedAt\": \"2026-07-07T08:29:34.216Z\",\n            \"service\": {\n                \"id\": \"ecaaec11-db83-4f45-8c9b-5aeefe355508\",\n                \"title\": \"Office Shifting\",\n                \"description\": \"Office furniture, equipment, and document moving service.\",\n                \"price\": 12000,\n                \"duration\": 360,\n                \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"categoryId\": \"d7af3bb6-d76d-4cf5-ae74-55eacd03d4fb\",\n                \"createdAt\": \"2026-07-07T06:05:41.710Z\",\n                \"updatedAt\": \"2026-07-07T06:05:41.710Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"81658b2d-b099-4ac7-af1b-e7e059b1451a\",\n            \"bookingDate\": \"2026-07-08T10:00:00.000Z\",\n            \"status\": \"COMPLETED\",\n            \"totalPrice\": 800,\n            \"notes\": \"Customer reported faulty switches in the bedroom.\",\n            \"customerAddress\": \"House 12, Road 5, Dhanmondi, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"serviceId\": \"1b3b8d1a-d335-4025-a9c3-598ec5773a91\",\n            \"createdAt\": \"2026-07-07T07:52:49.178Z\",\n            \"updatedAt\": \"2026-07-07T11:49:07.256Z\",\n            \"service\": {\n                \"id\": \"1b3b8d1a-d335-4025-a9c3-598ec5773a91\",\n                \"title\": \"Switch Board Repair\",\n                \"description\": \"Repair or replacement of faulty electrical switch boards.\",\n                \"price\": 800,\n                \"duration\": 45,\n                \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"categoryId\": \"d30c4b68-5fbb-4c30-8f08-fd959a609adc\",\n                \"createdAt\": \"2026-07-07T06:02:23.606Z\",\n                \"updatedAt\": \"2026-07-07T06:02:23.606Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"ef100142-341b-405f-9607-5e9ed6c7ce5d\",\n            \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\n            \"status\": \"IN_PROGRESS\",\n            \"totalPrice\": 1200,\n            \"notes\": \"AC is not cooling properly, possible gas refill needed.\",\n            \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"serviceId\": \"8d8a0a76-2cef-4526-909e-b2df95e3a372\",\n            \"createdAt\": \"2026-07-07T08:28:37.161Z\",\n            \"updatedAt\": \"2026-07-08T19:52:10.020Z\",\n            \"service\": {\n                \"id\": \"8d8a0a76-2cef-4526-909e-b2df95e3a372\",\n                \"title\": \"AC General Service\",\n                \"description\": \"Complete AC cleaning, filter wash, and basic performance check.\",\n                \"price\": 1200,\n                \"duration\": 60,\n                \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"categoryId\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n                \"createdAt\": \"2026-07-07T08:26:49.645Z\",\n                \"updatedAt\": \"2026-07-07T08:26:49.645Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        },\n        {\n            \"id\": \"46b10381-e478-43b4-89c1-82c4345c519d\",\n            \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\n            \"status\": \"REQUESTED\",\n            \"totalPrice\": 200,\n            \"notes\": \"PC is not cooling properly, possible gas refill needed.\",\n            \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\n            \"customerId\": \"aa7b6565-e7a3-435b-a237-6d510ac645fc\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"serviceId\": \"ec97bedb-052a-4e79-8e3e-680ac92a5948\",\n            \"createdAt\": \"2026-07-08T20:05:34.983Z\",\n            \"updatedAt\": \"2026-07-08T20:05:34.983Z\",\n            \"service\": {\n                \"id\": \"ec97bedb-052a-4e79-8e3e-680ac92a5948\",\n                \"title\": \"PC General Service\",\n                \"description\": \"Complete PC cleaning, filter wash, and basic performance check.\",\n                \"price\": 200,\n                \"duration\": 20,\n                \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"categoryId\": \"f66ab214-9376-4d8b-889b-46e30b9397ed\",\n                \"createdAt\": \"2026-07-08T20:01:46.105Z\",\n                \"updatedAt\": \"2026-07-08T20:01:46.105Z\"\n            },\n            \"technician\": {\n                \"id\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"userId\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n                \"experience\": \"1 years\",\n                \"location\": \"Khulna, Bangladesh\",\n                \"hourlyRate\": 900,\n                \"averageRating\": 5,\n                \"totalReviews\": 1,\n                \"completedJobs\": 1,\n                \"createdAt\": \"2026-07-06T13:56:31.791Z\",\n                \"updatedAt\": \"2026-07-08T19:46:57.193Z\",\n                \"user\": {\n                    \"id\": \"34c834cd-3d4f-41d9-9afb-4fb38b2d8a4d\",\n                    \"name\": \"Mike Technician\",\n                    \"email\": \"mike.technician@example.com\",\n                    \"password\": \"$2b$10$fEpkxp9muf6UjX4byJ7Eg.Bu/3PfDq0fZJ4pjDrSmXBTgV130yiKi\",\n                    \"phone\": \"01812345678\",\n                    \"role\": \"TECHNICIAN\",\n                    \"status\": \"ACTIVE\",\n                    \"createdAt\": \"2026-07-06T13:56:31.615Z\",\n                    \"updatedAt\": \"2026-07-06T13:56:31.615Z\"\n                }\n            }\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get-Booking-By-Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/booking/041af83c-e025-4642-b85d-c60e703e2cad",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "booking",
+                "041af83c-e025-4642-b85d-c60e703e2cad"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get-Booking-By-Id",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/booking/041af83c-e025-4642-b85d-c60e703e2cad",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "booking",
+                    "041af83c-e025-4642-b85d-c60e703e2cad"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-encoding",
+                  "value": "br"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 20:06:34 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"7cd-pi5D6669XISQnTLHgq0Wdeocwok\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::87mht-1783541190093-567799b6aac1"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Booking retrieved successfully\",\n    \"data\": {\n        \"id\": \"041af83c-e025-4642-b85d-c60e703e2cad\",\n        \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\n        \"status\": \"REQUESTED\",\n        \"totalPrice\": 3500,\n        \"notes\": \"AC is not cooling properly, possible gas refill needed.\",\n        \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\n        \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n        \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n        \"serviceId\": \"ef1e1583-ecac-4dc0-8e98-0a5ba014ddbf\",\n        \"createdAt\": \"2026-07-07T07:56:08.320Z\",\n        \"updatedAt\": \"2026-07-07T07:56:08.320Z\",\n        \"customer\": {\n            \"id\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"name\": \"John Customer\",\n            \"email\": \"john.customer@example.com\",\n            \"password\": \"$2b$10$bsIbEM2kfIKZejCqHJwYyOzrOhM/GTMWzaz4Z7Qg031NJIgX3Kfq.\",\n            \"phone\": \"01712345678\",\n            \"role\": \"CUSTOMER\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-07-06T13:55:30.668Z\",\n            \"updatedAt\": \"2026-07-08T19:59:03.831Z\"\n        },\n        \"service\": {\n            \"id\": \"ef1e1583-ecac-4dc0-8e98-0a5ba014ddbf\",\n            \"title\": \"AC Gas Refill\",\n            \"description\": \"Gas refill service for split or window AC units.\",\n            \"price\": 3500,\n            \"duration\": 90,\n            \"technicianId\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n            \"categoryId\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n            \"createdAt\": \"2026-07-07T06:17:33.494Z\",\n            \"updatedAt\": \"2026-07-07T06:17:33.494Z\"\n        },\n        \"technician\": {\n            \"id\": \"5b4f66b7-2286-43bd-b723-87849a3dc575\",\n            \"userId\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n            \"bio\": \"Experienced technician specializing in electrical repairs, appliance maintenance, and general troubleshooting.\",\n            \"experience\": \"5 years\",\n            \"location\": \"Magura, Bangladesh\",\n            \"hourlyRate\": 1500,\n            \"averageRating\": 0,\n            \"totalReviews\": 0,\n            \"completedJobs\": 0,\n            \"createdAt\": \"2026-07-07T06:12:48.702Z\",\n            \"updatedAt\": \"2026-07-07T06:15:16.726Z\",\n            \"user\": {\n                \"id\": \"94e0c95b-1d38-4244-96bc-40837cbe2cb9\",\n                \"name\": \"Md Riaz\",\n                \"email\": \"riaz.technician@gmail.com\",\n                \"password\": \"$2b$10$u.bDIh7LXPSF20V8HR2UgeGpGO4Ej5HIW3o8kOrzM8Eh6/6Dn95hS\",\n                \"phone\": \"01772295094\",\n                \"role\": \"TECHNICIAN\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-07T06:12:48.643Z\",\n                \"updatedAt\": \"2026-07-07T06:12:48.643Z\"\n            }\n        }\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Create-Reviews",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"bookingId\": \"81658b2d-b099-4ac7-af1b-e7e059b1451a\",\r\n  \"rating\": 5,\r\n  \"comment\": \"Excellent service! The technician arrived on time and fixed the issue quickly.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/reviews",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "reviews"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create-Reviews",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"bookingId\": \"81658b2d-b099-4ac7-af1b-e7e059b1451a\",\r\n  \"rating\": 5,\r\n  \"comment\": \"Excellent service! The technician arrived on time and fixed the issue quickly.\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/reviews",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "reviews"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 500
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 20:07:02 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"1ef-4lF2OSuAg5SL1CIM6HMStT321v0\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::smf4l-1783541220249-f4fde6a1a0f2"
+                },
+                {
+                  "key": "content-length",
+                  "value": "495"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"statusCode\": 500,\n    \"name\": \"Error\",\n    \"message\": \"You are not authorized to review this booking\",\n    \"error\": \"Error: You are not authorized to review this booking\\n    at Object.createReview (file:///var/task/dist/src/modules/review/review.service.js:17:15)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\\n    at async file:///var/task/dist/src/modules/review/review.controller.js:8:20\\n    at async file:///var/task/dist/src/utils/catchAsync.js:4:13\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Test-Route",
+      "item": [
+        {
+          "name": "Not-Found",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/technicianadlad",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "technicianadlad"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Not-Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/technicianadlad",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "technicianadlad"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 404
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 08 Jul 2026 20:11:22 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"5d-N0MF9XzSR/9mdIs1QHScfhXaEMI\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::bxw9g-1783541482776-a85b70de4171"
+                },
+                {
+                  "key": "content-length",
+                  "value": "93"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Route not found\",\n    \"path\": \"/api/technicianadlad\",\n    \"date\": \"2026-07-08T20:11:22.908Z\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Payments",
+      "item": [
+        {
+          "name": "Create-Payments",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"bookingId\": \"ef100142-341b-405f-9607-5e9ed6c7ce5d\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/payments/create",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "payments",
+                "create"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create-Payments",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"bookingId\": \"ef100142-341b-405f-9607-5e9ed6c7ce5d\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/payments/create",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "payments",
+                    "create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Thu, 09 Jul 2026 01:42:19 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"246-ePLT0KHvynCKccmvOuXQACrrOe8\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::nbwb8-1783561334706-ccb1ae1ca33f"
+                },
+                {
+                  "key": "content-length",
+                  "value": "582"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Payment session created successfully\",\n    \"data\": {\n        \"paymentUrl\": \"https://checkout.stripe.com/c/pay/cs_test_a1IKr7CTz27HmEPZLK95pz66LZ949nowZJxyzFBZnrPr4lO82CVPpGqkP0#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWnFgdnFaMDRLQnVIf0JDTHQwYU9%2FSXVOZFcyU3JpQGhuMnVkQTVJSGFBd3M9Tm92REZIbX1uNzZcRGNzUWRudVRMfGhgRlJUTW1RNFw0NTNrNlFXf21oM19UbzMxNDM1NXRwUEJjQEc0JyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get-User-Payment-History",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://fix-it-now-app.vercel.app/api/payments",
+              "protocol": "https",
+              "host": [
+                "fix-it-now-app",
+                "vercel",
+                "app"
+              ],
+              "path": [
+                "api",
+                "payments"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get-User-Payment-History",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://fix-it-now-app.vercel.app/api/payments",
+                  "protocol": "https",
+                  "host": [
+                    "fix-it-now-app",
+                    "vercel",
+                    "app"
+                  ],
+                  "path": [
+                    "api",
+                    "payments"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "access-control-allow-credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "age",
+                  "value": "0"
+                },
+                {
+                  "key": "cache-control",
+                  "value": "public, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "date",
+                  "value": "Thu, 09 Jul 2026 01:45:20 GMT"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"1ec-nOoBpgJmBL23FmDGnQaPEg8s+n8\""
+                },
+                {
+                  "key": "server",
+                  "value": "Vercel"
+                },
+                {
+                  "key": "strict-transport-security",
+                  "value": "max-age=63072000; includeSubDomains; preload"
+                },
+                {
+                  "key": "vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "x-vercel-cache",
+                  "value": "MISS"
+                },
+                {
+                  "key": "x-vercel-id",
+                  "value": "bom1::iad1::hzbvf-1783561517613-87b8f3093827"
+                },
+                {
+                  "key": "content-length",
+                  "value": "492"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Payment history retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"ed72fad2-af5c-4d5b-b16b-74bab68dd2ba\",\n            \"bookingId\": \"ef100142-341b-405f-9607-5e9ed6c7ce5d\",\n            \"transactionId\": \"pi_3Tr6zcGFIq5dJzLp1rK7c4nI\",\n            \"stripeSessionId\": \"cs_test_a1IKr7CTz27HmEPZLK95pz66LZ949nowZJxyzFBZnrPr4lO82CVPpGqkP0\",\n            \"amount\": 1200,\n            \"provider\": \"STRIPE\",\n            \"status\": \"COMPLETED\",\n            \"paidAt\": \"2026-07-09T01:43:15.604Z\",\n            \"createdAt\": \"2026-07-09T01:42:18.351Z\",\n            \"updatedAt\": \"2026-07-09T01:43:15.608Z\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Payment-Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/payments/ed72fad2-af5c-4d5b-b16b-74bab68dd2ba",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "payments",
+                "ed72fad2-af5c-4d5b-b16b-74bab68dd2ba"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Payment-Details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/payments/ed72fad2-af5c-4d5b-b16b-74bab68dd2ba",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "payments",
+                    "ed72fad2-af5c-4d5b-b16b-74bab68dd2ba"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1347"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"543-VM7y7gIs7LN6o70NDydtSewSwVE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 09 Jul 2026 01:45:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Payment retrieved successfully\",\n    \"data\": {\n        \"id\": \"ed72fad2-af5c-4d5b-b16b-74bab68dd2ba\",\n        \"bookingId\": \"ef100142-341b-405f-9607-5e9ed6c7ce5d\",\n        \"transactionId\": \"pi_3Tr6zcGFIq5dJzLp1rK7c4nI\",\n        \"stripeSessionId\": \"cs_test_a1IKr7CTz27HmEPZLK95pz66LZ949nowZJxyzFBZnrPr4lO82CVPpGqkP0\",\n        \"amount\": 1200,\n        \"provider\": \"STRIPE\",\n        \"status\": \"COMPLETED\",\n        \"paidAt\": \"2026-07-09T01:43:15.604Z\",\n        \"createdAt\": \"2026-07-09T01:42:18.351Z\",\n        \"updatedAt\": \"2026-07-09T01:43:15.608Z\",\n        \"booking\": {\n            \"id\": \"ef100142-341b-405f-9607-5e9ed6c7ce5d\",\n            \"bookingDate\": \"2026-07-11T10:30:00.000Z\",\n            \"status\": \"PAID\",\n            \"totalPrice\": 1200,\n            \"notes\": \"AC is not cooling properly, possible gas refill needed.\",\n            \"customerAddress\": \"House 18, Road 9, Mohammadpur, Dhaka\",\n            \"customerId\": \"2c9ac8b7-467c-441a-bacc-ac39ce5217fb\",\n            \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n            \"serviceId\": \"8d8a0a76-2cef-4526-909e-b2df95e3a372\",\n            \"createdAt\": \"2026-07-07T08:28:37.161Z\",\n            \"updatedAt\": \"2026-07-09T01:43:15.854Z\",\n            \"service\": {\n                \"id\": \"8d8a0a76-2cef-4526-909e-b2df95e3a372\",\n                \"title\": \"AC General Service\",\n                \"description\": \"Complete AC cleaning, filter wash, and basic performance check.\",\n                \"price\": 1200,\n                \"duration\": 60,\n                \"technicianId\": \"112c6fc1-2186-4d95-b1a8-7cee97728835\",\n                \"categoryId\": \"0066d3d8-e069-4ea8-b248-f1d4fffeae94\",\n                \"createdAt\": \"2026-07-07T08:26:49.645Z\",\n                \"updatedAt\": \"2026-07-07T08:26:49.645Z\"\n            }\n        }\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
