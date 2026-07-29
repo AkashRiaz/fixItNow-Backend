@@ -34,7 +34,18 @@ const getAllServices = catchAsync(
       message: "Services retrieved successfully",
       meta: services.meta,
       data: services.data,
-      
+    });
+  },
+);
+
+const getFeaturedServices = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const services = await serviceService.getFeaturedServices();
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Featured services retrieved successfully",
+      data: services,
     });
   },
 );
@@ -42,4 +53,5 @@ const getAllServices = catchAsync(
 export const serviceController = {
   createService,
   getAllServices,
+  getFeaturedServices,
 };

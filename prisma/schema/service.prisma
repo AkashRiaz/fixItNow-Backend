@@ -4,6 +4,7 @@ model Service {
     description String?
     price Float
     duration Int 
+    isFeatured Boolean @default(false)
 
     technicianId String
     technician TechnicianProfile @relation(fields: [technicianId], references: [id], onDelete: Cascade)

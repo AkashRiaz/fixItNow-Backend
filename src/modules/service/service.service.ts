@@ -151,7 +151,30 @@ const getAllServices = async (query: any) => {
   };
 };
 
+const getFeaturedServices = async () => {
+  const services = await prisma.service.findMany({
+    where: {
+      isFeatured: true,
+    },
+    include: {
+      category: true,
+      technician: {
+        include: {
+          user: {
+            omit: {
+              password: true,
+            },
+          },
+        },
+      },
+    },
+  });
+
+  return services;
+};
+
 export const serviceService = {
   createService,
   getAllServices,
+  getFeaturedServices,
 };
