@@ -9,6 +9,12 @@ router.post("/", auth(Role.CUSTOMER), bookingController.createBooking);
 
 router.get("/", auth(Role.CUSTOMER), bookingController.getAllBookings);
 
+router.patch(
+  "/:id/cancel",
+  auth(Role.CUSTOMER),
+  bookingController.cancelBooking,
+);
+
 router.get("/:id", auth(Role.CUSTOMER), bookingController.getBookingById);
 
 export const bookingRoute = router;

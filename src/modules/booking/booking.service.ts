@@ -11,7 +11,41 @@ const activeBookingStatuses: BookingStatus[] = [
 ];
 
 const getTimeInMinutes = (date: Date) => {
-  return date.getHours() * 60 + date.getMinutes();
+  return date.getUTCHours() * 60 + date.getUTCMinutes();
+};
+
+const getCurrentDhakaWallClockAsUTC = () => {
+  const now = new Date();
+
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Dhaka",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  });
+
+  const parts = formatter.formatToParts(now);
+
+  const values = Object.fromEntries(
+    parts
+      .filter((part) => part.type !== "literal")
+      .map((part) => [part.type, part.value]),
+  );
+
+  return new Date(
+    Date.UTC(
+      Number(values.year),
+      Number(values.month) - 1,
+      Number(values.day),
+      Number(values.hour),
+      Number(values.minute),
+      Number(values.second),
+    ),
+  );
 };
 
 const createBooking = async (
@@ -21,10 +55,7 @@ const createBooking = async (
   const slotStart = new Date(payload.slotStart);
   const slotEnd = new Date(payload.slotEnd);
 
-  if (
-    Number.isNaN(slotStart.getTime()) ||
-    Number.isNaN(slotEnd.getTime())
-  ) {
+  if (Number.isNaN(slotStart.getTime()) || Number.isNaN(slotEnd.getTime())) {
     throw new Error("Invalid booking date or time");
   }
 
@@ -32,18 +63,38 @@ const createBooking = async (
     throw new Error("End time must be after start time");
   }
 
-  if (slotStart <= new Date()) {
+  const currentDhakaTime = getCurrentDhakaWallClockAsUTC();
+
+  if (slotStart <= currentDhakaTime) {
     throw new Error("Booking time must be in the future");
+  }
+
+  if (!payload.customerAddress?.trim()) {
+    throw new Error("Customer address is required");
+  }
+
+  if (!payload.serviceId?.trim()) {
+    throw new Error("Service ID is required");
   }
 
   const service = await prisma.service.findUnique({
     where: {
       id: payload.serviceId,
     },
+
     include: {
       technician: {
         include: {
-          availability: true,
+          availability: {
+            orderBy: [
+              {
+                dayOfWeek: "asc",
+              },
+              {
+                startTime: "asc",
+              },
+            ],
+          },
         },
       },
     },
@@ -53,79 +104,64 @@ const createBooking = async (
     throw new Error("Service not found");
   }
 
-  const selectedDay = slotStart.getDay();
+  const selectedDay = slotStart.getUTCDay();
 
-  const selectedDayAvailability =
-    service.technician.availability.filter(
-      (availability) =>
-        availability.dayOfWeek === selectedDay,
-    );
+  const selectedDayAvailability = service.technician.availability.filter(
+    (availability) => availability.dayOfWeek === selectedDay,
+  );
 
   if (!selectedDayAvailability.length) {
-    throw new Error(
-      "Technician is not available on the selected day",
-    );
+    throw new Error("Technician is not available on the selected day");
   }
 
-  const requestedStartMinutes =
-    getTimeInMinutes(slotStart);
+  const requestedStartMinutes = getTimeInMinutes(slotStart);
 
-  const requestedEndMinutes =
-    getTimeInMinutes(slotEnd);
+  const requestedEndMinutes = getTimeInMinutes(slotEnd);
 
-  const isInsideAvailability =
-    selectedDayAvailability.some((availability) => {
-      const availabilityStart = new Date(
-        availability.startTime,
-      );
+  const matchingAvailability = selectedDayAvailability.find((availability) => {
+    const availabilityStart = new Date(availability.startTime);
 
-      const availabilityEnd = new Date(
-        availability.endTime,
-      );
+    const availabilityEnd = new Date(availability.endTime);
 
-      const availableStartMinutes =
-        getTimeInMinutes(availabilityStart);
+    const availableStartMinutes = getTimeInMinutes(availabilityStart);
 
-      const availableEndMinutes =
-        getTimeInMinutes(availabilityEnd);
+    const availableEndMinutes = getTimeInMinutes(availabilityEnd);
 
-      return (
-        requestedStartMinutes >=
-          availableStartMinutes &&
-        requestedEndMinutes <=
-          availableEndMinutes
-      );
-    });
-
-  if (!isInsideAvailability) {
-    throw new Error(
-      "Selected time is outside the technician availability",
+    return (
+      requestedStartMinutes >= availableStartMinutes &&
+      requestedEndMinutes <= availableEndMinutes
     );
+  });
+
+  if (!matchingAvailability) {
+    throw new Error("Selected time is outside the technician availability");
   }
 
   const booking = await prisma.$transaction(
     async (tx) => {
-      const conflictingBooking =
-        await tx.booking.findFirst({
-          where: {
-            technicianId: service.technicianId,
+      const conflictingBooking = await tx.booking.findFirst({
+        where: {
+          technicianId: service.technicianId,
 
-            status: {
-              in: activeBookingStatuses,
-            },
-
-            slotStart: {
-              lt: slotEnd,
-            },
-
-            slotEnd: {
-              gt: slotStart,
-            },
+          status: {
+            in: activeBookingStatuses,
           },
-          select: {
-            id: true,
+
+          slotStart: {
+            lt: slotEnd,
           },
-        });
+
+          slotEnd: {
+            gt: slotStart,
+          },
+        },
+
+        select: {
+          id: true,
+          slotStart: true,
+          slotEnd: true,
+        },
+      });
 
       if (conflictingBooking) {
         throw new Error(
@@ -135,16 +171,13 @@ const createBooking = async (
 
       return tx.booking.create({
         data: {
-          // Existing field stays available
           bookingDate: slotStart,
-
-          // New slot fields
           slotStart,
           slotEnd,
 
           notes: payload.notes?.trim() || null,
-          customerAddress:
-            payload.customerAddress.trim(),
+
+          customerAddress: payload.customerAddress.trim(),
 
           customerId: userId,
           serviceId: service.id,
@@ -179,8 +212,7 @@ const createBooking = async (
       });
     },
     {
-      isolationLevel:
-        Prisma.TransactionIsolationLevel.Serializable,
+      isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
     },
   );
 
@@ -242,8 +274,83 @@ const getBookingById = async (bookingId: string, userId: string) => {
   return booking;
 };
 
+const cancelBooking = async (bookingId: string, userId: string) => {
+  return prisma.$transaction(
+    async (tx) => {
+      const booking = await tx.booking.findFirst({
+        where: {
+          id: bookingId,
+          customerId: userId,
+        },
+        select: {
+          id: true,
+          status: true,
+          payment: {
+            select: {
+              id: true,
+              status: true,
+            },
+          },
+        },
+      });
+
+      if (!booking) {
+        throw new Error("Booking not found");
+      }
+
+      const cancellableStatuses: BookingStatus[] = [
+        BookingStatus.REQUESTED,
+        BookingStatus.ACCEPTED,
+      ];
+
+      if (!cancellableStatuses.includes(booking.status)) {
+        throw new Error("Only requested or accepted bookings can be cancelled");
+      }
+
+      if (booking.payment?.status === "COMPLETED") {
+        throw new Error("Paid bookings cannot be cancelled");
+      }
+
+      return tx.booking.update({
+        where: {
+          id: booking.id,
+        },
+        data: {
+          status: BookingStatus.CANCELLED,
+        },
+        include: {
+          service: true,
+
+          customer: {
+            omit: {
+              password: true,
+            },
+          },
+
+          technician: {
+            include: {
+              user: {
+                omit: {
+                  password: true,
+                },
+              },
+            },
+          },
+
+          payment: true,
+          review: true,
+        },
+      });
+    },
+    {
+      isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
+    },
+  );
+};
+
 export const bookingService = {
   createBooking,
   getAllBookings,
   getBookingById,
+  cancelBooking,
 };

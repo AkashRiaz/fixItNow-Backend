@@ -6,7 +6,10 @@ import {
   UserStatus,
 } from "../../../generated/prisma/enums";
 import { prisma } from "../../lib/prisma";
-import { ICategoryCreatePayload, ICategoryUpdatePayload } from "./admin.interface";
+import {
+  ICategoryCreatePayload,
+  ICategoryUpdatePayload,
+} from "./admin.interface";
 
 type UserQuery = {
   searchTerm?: string;
@@ -200,18 +203,29 @@ const getAllBookingsForAdmin = async () => {
   const bookings = await prisma.booking.findMany({
     include: {
       service: true,
+
       customer: {
         omit: {
           password: true,
         },
       },
+
       technician: {
         include: {
-          user: true,
+          user: {
+            omit: {
+              password: true,
+            },
+          },
         },
       },
     },
+
+    orderBy: {
+      createdAt: "desc",
+    },
   });
+
   return bookings;
 };
 
