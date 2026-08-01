@@ -13,14 +13,36 @@ router.patch(
 
 router.get("/", technicianController.getAllTechnicians);
 
-router.get("/bookings", auth(Role.TECHNICIAN), technicianController.getTechnicianBookings);
+router.get(
+  "/bookings",
+  auth(Role.TECHNICIAN),
+  technicianController.getTechnicianBookings,
+);
 
-router.get("/dashboard", auth(Role.TECHNICIAN), technicianController.getTechnicianDashboard);
+router.get(
+  "/dashboard",
+  auth(Role.TECHNICIAN),
+  technicianController.getTechnicianDashboard,
+);
+
+router.get(
+  "/availability",
+  auth(Role.TECHNICIAN),
+  technicianController.getTechnicianAvailability,
+);
+
+router.patch(
+  "/availability",
+  auth(Role.TECHNICIAN),
+  technicianController.updateTechnicianAvailability,
+);
+
+router.patch(
+  "/bookings/:id",
+  auth(Role.TECHNICIAN),
+  technicianController.updateBookingStatus,
+);
 
 router.get("/:id", technicianController.getTechnicianById);
-
-router.patch("/availability", auth(Role.TECHNICIAN), technicianController.updateTechnicianAvailability);
-
-router.patch("/bookings/:id", auth(Role.TECHNICIAN), technicianController.updateBookingStatus);
 
 export const technicianRoute = router;

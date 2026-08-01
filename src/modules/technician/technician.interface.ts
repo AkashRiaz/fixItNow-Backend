@@ -5,6 +5,7 @@ export interface ITechnicianUpdatePayload {
   experience?: string;
   location?: string;
   hourlyRate?: number;
+  profilePhoto?: string;
 }
 export interface ITechnicianAvailabilityPayload {
   dayOfWeek: number;
@@ -13,10 +14,9 @@ export interface ITechnicianAvailabilityPayload {
 }
 
 export interface IServiceQuery extends TechnicianProfileWhereInput {
-
-    searchTerm?: string;
-    limit?: number;
-    page?: number;
-    sortBy?: string;
-    sortOrder?: "asc" | "desc";
+  searchTerm?: string;
+  limit?: number;
+  page?: number;
+  sortBy?: string;
+  sortOrder?: "asc" | "desc";
 }

@@ -2,6 +2,10 @@ model Booking {
     id String @id @default(uuid())
     bookingDate DateTime
 
+     // New booking slot fields
+    slotStart DateTime?
+    slotEnd DateTime?
+
     status BookingStatus @default(REQUESTED)
 
     totalPrice Float
@@ -27,5 +31,7 @@ model Booking {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
-   @@map("bookings")
+    @@index([technicianId, slotStart, slotEnd])
+    @@index([customerId, slotStart])
+    @@map("bookings")
 }

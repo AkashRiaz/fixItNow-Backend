@@ -1,6 +1,7 @@
 export interface IBookingCreatePayload {
-    bookingDate: Date;
-    notes?: string;
-    customerAddress: string;
-    serviceId: string;
+  slotStart: string;
+  slotEnd: string;
+  notes?: string;
+  customerAddress: string;
+  serviceId: string;
 }

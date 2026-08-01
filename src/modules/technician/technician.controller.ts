@@ -3,6 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import { catchAsync } from "../../utils/catchAsync";
 import { technicianService } from "./technician.service";
 import { sendResponse } from "../../utils/sendResponse";
+import { ITechnicianAvailabilityPayload } from "./technician.interface";
 
 const updateTechnicianProfile = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -22,10 +23,29 @@ const updateTechnicianProfile = catchAsync(
   },
 );
 
+const getTechnicianAvailability = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const userId = req.user?.id;
+
+    const result = await technicianService.getTechnicianAvailability(
+      userId as string,
+    );
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Technician availability retrieved successfully",
+      data: result,
+    });
+  },
+);
+
 const updateTechnicianAvailability = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const userId = req.user?.id;
-    const payload = req.body;
+
+    const payload = req.body as ITechnicianAvailabilityPayload[];
+
     const result = await technicianService.updateTechnicianAvailability(
       userId as string,
       payload,
@@ -34,12 +54,11 @@ const updateTechnicianAvailability = catchAsync(
     sendResponse(res, {
       success: true,
       statusCode: httpStatus.OK,
-      message: "Technician availability updated successfully",
+      message: "Technician availability saved successfully",
       data: result,
     });
   },
 );
-
 const getAllTechnicians = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const query = req.query;
@@ -125,6 +144,7 @@ const getTechnicianDashboard = catchAsync(
 
 export const technicianController = {
   updateTechnicianProfile,
+  getTechnicianAvailability,
   updateTechnicianAvailability,
   getTechnicianById,
   getAllTechnicians,

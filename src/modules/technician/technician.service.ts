@@ -30,10 +30,69 @@ const updateTechnicianProfile = async (
     where: {
       userId,
     },
-    data: payload,
+    data: {
+      ...(payload.bio !== undefined && {
+        bio: payload.bio?.trim() || null,
+      }),
+
+      ...(payload.experience !== undefined && {
+        experience: payload.experience.trim(),
+      }),
+
+      ...(payload.location !== undefined && {
+        location: payload.location.trim(),
+      }),
+
+      ...(payload.hourlyRate !== undefined && {
+        hourlyRate: Number(payload.hourlyRate),
+      }),
+
+      ...(payload.profilePhoto !== undefined && {
+        profilePhoto: payload.profilePhoto.trim() || null,
+      }),
+    },
+    include: {
+      user: {
+        omit: {
+          password: true,
+        },
+      },
+      availability: true,
+    },
   });
 
   return updatedProfile;
+};
+
+const getTechnicianAvailability = async (userId: string) => {
+  const technicianProfile = await prisma.technicianProfile.findUnique({
+    where: {
+      userId,
+    },
+    select: {
+      id: true,
+    },
+  });
+
+  if (!technicianProfile) {
+    throw new Error("Technician profile not found.");
+  }
+
+  const availability = await prisma.availability.findMany({
+    where: {
+      technicianId: technicianProfile.id,
+    },
+    orderBy: [
+      {
+        dayOfWeek: "asc",
+      },
+      {
+        startTime: "asc",
+      },
+    ],
+  });
+
+  return availability;
 };
 
 const updateTechnicianAvailability = async (
@@ -44,11 +103,43 @@ const updateTechnicianAvailability = async (
     where: {
       userId,
     },
+    select: {
+      id: true,
+    },
   });
 
   if (!technicianProfile) {
     throw new Error("Technician profile not found.");
   }
+
+  if (!Array.isArray(payload)) {
+    throw new Error("Availability must be provided as an array.");
+  }
+
+  const availabilityData = payload.map((slot) => {
+    const dayOfWeek = Number(slot.dayOfWeek);
+    const startTime = new Date(slot.startTime);
+    const endTime = new Date(slot.endTime);
+
+    if (!Number.isInteger(dayOfWeek) || dayOfWeek < 0 || dayOfWeek > 6) {
+      throw new Error("Day of week must be between 0 and 6.");
+    }
+
+    if (Number.isNaN(startTime.getTime()) || Number.isNaN(endTime.getTime())) {
+      throw new Error("Invalid availability start or end time.");
+    }
+
+    if (startTime >= endTime) {
+      throw new Error("Availability end time must be after start time.");
+    }
+
+    return {
+      technicianId: technicianProfile.id,
+      dayOfWeek,
+      startTime,
+      endTime,
+    };
+  });
 
   const result = await prisma.$transaction(async (tx) => {
     await tx.availability.deleteMany({
@@ -57,20 +148,24 @@ const updateTechnicianAvailability = async (
       },
     });
 
-    // Insert new availability
-    await tx.availability.createMany({
-      data: payload.map((slot) => ({
-        technicianId: technicianProfile.id,
-        dayOfWeek: slot.dayOfWeek,
-        startTime: slot.startTime,
-        endTime: slot.endTime,
-      })),
-    });
+    if (availabilityData.length > 0) {
+      await tx.availability.createMany({
+        data: availabilityData,
+      });
+    }
 
-    return await tx.availability.findMany({
+    return tx.availability.findMany({
       where: {
         technicianId: technicianProfile.id,
       },
+      orderBy: [
+        {
+          dayOfWeek: "asc",
+        },
+        {
+          startTime: "asc",
+        },
+      ],
     });
   });
 
@@ -209,19 +304,45 @@ const getTechnicianById = async (technicianId: string) => {
       id: technicianId,
     },
     include: {
-      reviews: true,
+      user: {
+        omit: {
+          password: true,
+        },
+      },
+
+      reviews: {
+        include: {
+          customer: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              phone: true,
+            },
+          },
+        },
+      },
 
       services: {
         include: {
           category: true,
         },
       },
+
+      availability: {
+        orderBy: {
+          dayOfWeek: "asc",
+        },
+      },
     },
   });
 
+  if (!technician) {
+    throw new Error("Technician not found");
+  }
+
   return technician;
 };
-
 const getTechnicianBookings = async (userId: string) => {
   const technicianProfile = await prisma.technicianProfile.findUnique({
     where: {
@@ -523,6 +644,7 @@ const getTechnicianDashboard = async (userId: string) => {
 
 export const technicianService = {
   updateTechnicianProfile,
+  getTechnicianAvailability,
   updateTechnicianAvailability,
   getAllTechnicians,
   getTechnicianById,

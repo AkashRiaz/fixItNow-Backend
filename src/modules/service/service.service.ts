@@ -136,6 +136,12 @@ const getAllServices = async (query: any) => {
               password: true,
             },
           },
+
+          availability: {
+            orderBy: {
+              dayOfWeek: "asc",
+            },
+          },
         },
       },
     },

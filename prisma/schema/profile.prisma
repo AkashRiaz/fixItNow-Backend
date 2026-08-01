@@ -5,6 +5,7 @@ model TechnicianProfile {
     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
     bio String?
+    profilePhoto String?
     experience String @default("")
     location String @default("")
     hourlyRate  Float?
@@ -41,6 +42,6 @@ model Availability {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
-
+    @@index([technicianId, dayOfWeek])
     @@map("availabilities")
 }
