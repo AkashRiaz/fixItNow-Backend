@@ -9,6 +9,14 @@ router.post("/", auth(Role.TECHNICIAN), serviceController.createService);
 
 router.get("/", serviceController.getAllServices);
 
+router.get(
+  "/technician-services",
+  auth(Role.TECHNICIAN),
+  serviceController.getServicesByTechnician,
+);
+
+router.patch("/:id", auth(Role.TECHNICIAN), serviceController.updateService);
+
 router.get("/featured", serviceController.getFeaturedServices);
 
 export const serviceRoute = router;

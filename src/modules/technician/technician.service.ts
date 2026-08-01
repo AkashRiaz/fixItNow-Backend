@@ -1,5 +1,10 @@
+import httpStatus from "http-status";
 import { Prisma } from "../../../generated/prisma/browser";
-import { BookingStatus, UserStatus } from "../../../generated/prisma/enums";
+import {
+  BookingStatus,
+  PaymentStatus,
+  UserStatus,
+} from "../../../generated/prisma/enums";
 import { TechnicianProfileWhereInput } from "../../../generated/prisma/models";
 import { prisma } from "../../lib/prisma";
 import {
@@ -73,7 +78,7 @@ const updateTechnicianAvailability = async (
 };
 
 const getAllTechnicians = async (query: any) => {
-  const limit = query.limit ? Number(query.limit) : 10;
+  const limit = query.limit ? Number(query.limit) : 3;
   const page = query.page ? Number(query.page) : 1;
   const skip = (page - 1) * limit;
   const sortBy = query.sortBy ? query.sortBy : "createdAt";
@@ -205,6 +210,12 @@ const getTechnicianById = async (technicianId: string) => {
     },
     include: {
       reviews: true,
+
+      services: {
+        include: {
+          category: true,
+        },
+      },
     },
   });
 
@@ -316,6 +327,200 @@ const updateBookingStatus = async (
   return updatedBooking;
 };
 
+const getTechnicianDashboard = async (userId: string) => {
+  const technician = await prisma.technicianProfile.findUnique({
+    where: {
+      userId,
+    },
+    select: {
+      id: true,
+      userId: true,
+      completedJobs: true,
+    },
+  });
+
+  if (!technician) {
+    throw new Error("Technician profile not found");
+  }
+
+  const technicianId = technician.id;
+  const currentDate = new Date();
+
+  const [
+    pendingRequests,
+    upcomingJobs,
+    completedJobs,
+    earningsResult,
+    upcomingBookings,
+    pendingBookings,
+    recentPayments,
+  ] = await prisma.$transaction([
+    prisma.booking.count({
+      where: {
+        technicianId,
+        status: BookingStatus.REQUESTED,
+      },
+    }),
+
+    prisma.booking.count({
+      where: {
+        technicianId,
+        bookingDate: {
+          gte: currentDate,
+        },
+        status: {
+          in: [
+            BookingStatus.ACCEPTED,
+            BookingStatus.PAID,
+            BookingStatus.IN_PROGRESS,
+          ],
+        },
+      },
+    }),
+
+    prisma.booking.count({
+      where: {
+        technicianId,
+        status: BookingStatus.COMPLETED,
+      },
+    }),
+
+    prisma.payment.aggregate({
+      where: {
+        status: PaymentStatus.COMPLETED,
+        booking: {
+          technicianId,
+          status: BookingStatus.COMPLETED,
+        },
+      },
+      _sum: {
+        amount: true,
+      },
+    }),
+
+    prisma.booking.findMany({
+      where: {
+        technicianId,
+        bookingDate: {
+          gte: currentDate,
+        },
+        status: {
+          in: [
+            BookingStatus.ACCEPTED,
+            BookingStatus.PAID,
+            BookingStatus.IN_PROGRESS,
+          ],
+        },
+      },
+      orderBy: {
+        bookingDate: "asc",
+      },
+      take: 5,
+      include: {
+        service: {
+          select: {
+            id: true,
+            title: true,
+            duration: true,
+            price: true,
+          },
+        },
+        customer: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            phone: true,
+          },
+        },
+        payment: {
+          select: {
+            id: true,
+            amount: true,
+            status: true,
+            createdAt: true,
+          },
+        },
+      },
+    }),
+
+    prisma.booking.findMany({
+      where: {
+        technicianId,
+        status: BookingStatus.REQUESTED,
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+      take: 5,
+      include: {
+        service: {
+          select: {
+            id: true,
+            title: true,
+            duration: true,
+            price: true,
+          },
+        },
+        customer: {
+          select: {
+            id: true,
+            name: true,
+            email: true,
+            phone: true,
+          },
+        },
+      },
+    }),
+
+    prisma.payment.findMany({
+      where: {
+        status: PaymentStatus.COMPLETED,
+        booking: {
+          technicianId,
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+      take: 5,
+      include: {
+        booking: {
+          select: {
+            id: true,
+            bookingDate: true,
+            status: true,
+            service: {
+              select: {
+                id: true,
+                title: true,
+              },
+            },
+            customer: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
+          },
+        },
+      },
+    }),
+  ]);
+
+  return {
+    summary: {
+      upcomingJobs,
+      totalEarnings: earningsResult._sum.amount || 0,
+      pendingRequests,
+      completedJobs,
+    },
+    upcomingBookings,
+    pendingBookings,
+    recentPayments,
+  };
+};
+
 export const technicianService = {
   updateTechnicianProfile,
   updateTechnicianAvailability,
@@ -323,4 +528,5 @@ export const technicianService = {
   getTechnicianById,
   getTechnicianBookings,
   updateBookingStatus,
+  getTechnicianDashboard,
 };

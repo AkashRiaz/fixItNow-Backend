@@ -1,3 +1,7 @@
 export interface ICategoryCreatePayload {
-    name: string;
+  name: string;
+}
+
+export interface ICategoryUpdatePayload {
+  name?: string;
 }

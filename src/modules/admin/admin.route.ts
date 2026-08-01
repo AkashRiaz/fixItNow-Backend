@@ -9,11 +9,15 @@ router.post("/category", auth(Role.ADMIN), adminController.createCategory);
 
 router.get("/categories", auth(Role.ADMIN), adminController.getAllCategories);
 
+router.patch("/category/:id", auth(Role.ADMIN), adminController.updateCategory);
+
 router.get(
   "/bookings",
   auth(Role.ADMIN),
   adminController.getAllBookingsForAdmin,
 );
+
+router.get("/dashboard", auth(Role.ADMIN), adminController.getAdminDashboard);
 
 router.get("/users", auth(Role.ADMIN), adminController.getAllUsers);
 

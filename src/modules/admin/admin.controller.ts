@@ -3,6 +3,17 @@ import { catchAsync } from "../../utils/catchAsync";
 import { adminService } from "./admin.service";
 import { sendResponse } from "../../utils/sendResponse";
 import httpStatus from "http-status";
+import { Role, UserStatus } from "../../../generated/prisma/enums";
+
+type UserQuery = {
+  searchTerm?: string;
+  role?: Role;
+  status?: UserStatus;
+  page?: string;
+  limit?: string;
+  sortBy?: string;
+  sortOrder?: "asc" | "desc";
+};
 
 const createCategory = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -33,13 +44,14 @@ const getAllCategories = catchAsync(
 
 const getAllUsers = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const users = await adminService.getAllUsers();
+    const users = await adminService.getAllUsers(req.query as UserQuery);
 
     sendResponse(res, {
       success: true,
       statusCode: httpStatus.OK,
       message: "Users retrieved successfully",
-      data: users,
+      data: users.users,
+      meta: users.meta,
     });
   },
 );
@@ -63,21 +75,56 @@ const updateUserStatus = catchAsync(
   },
 );
 
-const getAllBookingsForAdmin = catchAsync(async(req:Request, res:Response, next:NextFunction)=>{
-  const bookings = await adminService.getAllBookingsForAdmin();
+const getAllBookingsForAdmin = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const bookings = await adminService.getAllBookingsForAdmin();
 
-  sendResponse(res, {
-    success: true,
-    statusCode: httpStatus.OK,
-    message: "Bookings retrieved successfully",
-    data: bookings,
-  });
-})
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Bookings retrieved successfully",
+      data: bookings,
+    });
+  },
+);
+
+const getAdminDashboard = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const result = await adminService.getAdminDashboard();
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Admin dashboard data retrieved successfully",
+      data: result,
+    });
+  },
+);
+
+const updateCategory = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const categoryId = req.params.id;
+    const payload = req.body;
+    const updatedCategory = await adminService.updateCategory(
+      categoryId as string,
+      payload,
+    );
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Category updated successfully",
+      data: updatedCategory,
+    });
+  },
+);
 
 export const adminController = {
   createCategory,
   getAllCategories,
+  updateCategory,
   getAllUsers,
   updateUserStatus,
   getAllBookingsForAdmin,
+  getAdminDashboard,
 };

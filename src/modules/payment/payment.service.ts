@@ -49,7 +49,7 @@ const createPaymentSession = async (userId: string, bookingId: string) => {
           quantity: 1,
         },
       ],
-      success_url: `${config.app_url}/payment-success?success=true`,
+      success_url: `${config.app_url}/dashboard/bookings?success=true`,
 
       cancel_url: `${config.app_url}/payment-cancel?success=false`,
 

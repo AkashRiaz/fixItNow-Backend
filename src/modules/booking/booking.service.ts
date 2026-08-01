@@ -41,8 +41,11 @@ const createBooking = async (
   return booking;
 };
 
-const getAllBookings = async () => {
+const getAllBookings = async (userId: string) => {
   const bookings = await prisma.booking.findMany({
+    where: {
+      customerId: userId,
+    },
     include: {
       service: true,
       technician: {
@@ -54,16 +57,22 @@ const getAllBookings = async () => {
           },
         },
       },
+      customer: {
+        omit: {
+          password: true,
+        },
+      },
     },
   });
 
   return bookings;
 };
 
-const getBookingById = async (bookingId: string) => {
+const getBookingById = async (bookingId: string, userId: string) => {
   const booking = await prisma.booking.findUnique({
     where: {
       id: bookingId,
+      customerId: userId,
     },
     include: {
       customer: true,

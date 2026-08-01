@@ -50,8 +50,43 @@ const getFeaturedServices = catchAsync(
   },
 );
 
+const getServicesByTechnician = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const userId = req.user?.id;
+    const services = await serviceService.getServicesByTechnician(
+      userId as string,
+    );
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Services by technician retrieved successfully",
+      data: services,
+    });
+  },
+);
+
+const updateService = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const serviceId = req.params.id;
+    const payload = req.body;
+    const updatedService = await serviceService.updateService(
+      serviceId as string,
+      payload,
+    );
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Service updated successfully",
+      data: updatedService,
+    });
+  },
+);
+
 export const serviceController = {
   createService,
   getAllServices,
   getFeaturedServices,
+  getServicesByTechnician,
+  updateService,
 };

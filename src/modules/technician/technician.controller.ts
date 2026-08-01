@@ -71,31 +71,57 @@ const getTechnicianById = catchAsync(
   },
 );
 
-const getTechnicianBookings = catchAsync(async(req:Request, res:Response, next:NextFunction)=>{
-  const userId = req.user?.id;
-  const bookings = await technicianService.getTechnicianBookings(userId as string);
+const getTechnicianBookings = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const userId = req.user?.id;
+    const bookings = await technicianService.getTechnicianBookings(
+      userId as string,
+    );
 
-  sendResponse(res, {
-    success: true,
-    statusCode: httpStatus.OK,
-    message: "Technician bookings retrieved successfully",
-    data: bookings,
-  });
-})
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Technician bookings retrieved successfully",
+      data: bookings,
+    });
+  },
+);
 
-const updateBookingStatus = catchAsync(async(req:Request, res:Response, next:NextFunction)=>{
-  const userId = req.user?.id;
-  const bookingId = req.params.id;
-  const { status } = req.body;
-  const updatedBooking = await technicianService.updateBookingStatus(userId as string,bookingId as string, status);
+const updateBookingStatus = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const userId = req.user?.id;
+    const bookingId = req.params.id;
+    const { status } = req.body;
+    const updatedBooking = await technicianService.updateBookingStatus(
+      userId as string,
+      bookingId as string,
+      status,
+    );
 
-  sendResponse(res, {
-    success: true,
-    statusCode: httpStatus.OK,
-    message: "Booking status updated successfully",
-    data: updatedBooking,
-  });
-})
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Booking status updated successfully",
+      data: updatedBooking,
+    });
+  },
+);
+
+const getTechnicianDashboard = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const userId = req.user?.id;
+    const dashboardData = await technicianService.getTechnicianDashboard(
+      userId as string,
+    );
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Technician dashboard data retrieved successfully",
+      data: dashboardData,
+    });
+  },
+);
 
 export const technicianController = {
   updateTechnicianProfile,
@@ -104,4 +130,5 @@ export const technicianController = {
   getAllTechnicians,
   getTechnicianBookings,
   updateBookingStatus,
+  getTechnicianDashboard,
 };

@@ -32,7 +32,7 @@ const createService = async (
 };
 
 const getAllServices = async (query: any) => {
-  const limit = query.limit ? Number(query.limit) : 10;
+  const limit = query.limit ? Number(query.limit) : 5;
   const page = query.page ? Number(query.page) : 1;
   const skip = (page - 1) * limit;
   const sortBy = query.sortBy ? query.sortBy : "createdAt";
@@ -173,8 +173,54 @@ const getFeaturedServices = async () => {
   return services;
 };
 
+const getServicesByTechnician = async (userId: string) => {
+  // console.log("Fetching services for technicianId:", userId);
+  const services = await prisma.service.findMany({
+    where: {
+      technician: {
+        userId: userId,
+      },
+    },
+    include: {
+      category: true,
+      technician: {
+        include: {
+          user: {
+            omit: {
+              password: true,
+            },
+          },
+        },
+      },
+    },
+  });
+
+  // console.log("Services by technician:", services);
+
+  if (!services) {
+    throw new Error("No services found for this technician");
+  }
+
+  return services;
+};
+
+const updateService = async (
+  id: string,
+  payload: Partial<IServiceCreatePayload>,
+) => {
+  const service = await prisma.service.update({
+    where: {
+      id,
+    },
+    data: payload,
+  });
+  return service;
+};
+
 export const serviceService = {
   createService,
   getAllServices,
   getFeaturedServices,
+  getServicesByTechnician,
+  updateService,
 };
