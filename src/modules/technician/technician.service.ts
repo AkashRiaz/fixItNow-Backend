@@ -3,14 +3,81 @@ import { Prisma } from "../../../generated/prisma/browser";
 import {
   BookingStatus,
   PaymentStatus,
+  Role,
   UserStatus,
 } from "../../../generated/prisma/enums";
 import { TechnicianProfileWhereInput } from "../../../generated/prisma/models";
 import { prisma } from "../../lib/prisma";
 import {
+  IBecomeTechnicianPayload,
   ITechnicianAvailabilityPayload,
   ITechnicianUpdatePayload,
 } from "./technician.interface";
+
+const registerExistingCustomerAsTechnician = async (
+  userId: string,
+  payload: IBecomeTechnicianPayload,
+) => {
+  const user = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+    include: {
+      technicianProfile: true,
+    },
+  });
+
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  if (user.role === Role.ADMIN) {
+    throw new Error("Admin account cannot be converted to technician");
+  }
+
+  if (user.role === Role.TECHNICIAN || user.technicianProfile) {
+    throw new Error("This account is already registered as a technician");
+  }
+
+  const hourlyRate =
+    payload.hourlyRate !== undefined ? Number(payload.hourlyRate) : null;
+
+  if (hourlyRate !== null && (Number.isNaN(hourlyRate) || hourlyRate < 0)) {
+    throw new Error("Hourly rate must be a valid positive number");
+  }
+
+  const result = await prisma.$transaction(async (tx) => {
+    const updatedUser = await tx.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        role: Role.TECHNICIAN,
+      },
+      omit: {
+        password: true,
+      },
+    });
+
+    const technicianProfile = await tx.technicianProfile.create({
+      data: {
+        userId,
+        bio: payload.bio?.trim() || null,
+        experience: payload.experience?.trim() || "",
+        location: payload.location?.trim() || "",
+        hourlyRate,
+        profilePhoto: payload.profilePhoto?.trim() || null,
+      },
+    });
+
+    return {
+      user: updatedUser,
+      technicianProfile,
+    };
+  });
+
+  return result;
+};
 
 const updateTechnicianProfile = async (
   userId: string,
@@ -643,6 +710,7 @@ const getTechnicianDashboard = async (userId: string) => {
 };
 
 export const technicianService = {
+   registerExistingCustomerAsTechnician,
   updateTechnicianProfile,
   getTechnicianAvailability,
   updateTechnicianAvailability,

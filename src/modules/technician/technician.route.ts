@@ -5,6 +5,12 @@ import { auth } from "../../middleware/auth";
 
 const router = Router();
 
+router.post(
+  "/register",
+  auth(Role.CUSTOMER),
+  technicianController.registerExistingCustomerAsTechnician,
+);
+
 router.patch(
   "/profile",
   auth(Role.TECHNICIAN),

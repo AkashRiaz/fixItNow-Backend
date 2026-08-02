@@ -5,6 +5,24 @@ import { technicianService } from "./technician.service";
 import { sendResponse } from "../../utils/sendResponse";
 import { ITechnicianAvailabilityPayload } from "./technician.interface";
 
+const registerExistingCustomerAsTechnician = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const userId = req.user?.id;
+
+    const result = await technicianService.registerExistingCustomerAsTechnician(
+      userId as string,
+      req.body,
+    );
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.CREATED,
+      message: "Technician account created successfully",
+      data: result,
+    });
+  },
+);
+
 const updateTechnicianProfile = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const userId = req.user?.id;
@@ -143,6 +161,7 @@ const getTechnicianDashboard = catchAsync(
 );
 
 export const technicianController = {
+  registerExistingCustomerAsTechnician,
   updateTechnicianProfile,
   getTechnicianAvailability,
   updateTechnicianAvailability,

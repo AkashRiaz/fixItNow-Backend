@@ -20,3 +20,11 @@ export interface IServiceQuery extends TechnicianProfileWhereInput {
   sortBy?: string;
   sortOrder?: "asc" | "desc";
 }
+
+export interface IBecomeTechnicianPayload {
+  bio?: string;
+  experience?: string;
+  location?: string;
+  hourlyRate?: number;
+  profilePhoto?: string;
+}
