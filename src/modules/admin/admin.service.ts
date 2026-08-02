@@ -252,7 +252,7 @@ const getAdminDashboard = async () => {
     recentBookings,
     recentPayments,
     topTechnicians,
-  ] = await prisma.$transaction([
+  ] = await Promise.all([
     prisma.user.count(),
 
     prisma.user.count({
@@ -347,13 +347,22 @@ const getAdminDashboard = async () => {
         createdAt: "desc",
       },
       take: 5,
-      include: {
+      select: {
+        id: true,
+        bookingDate: true,
+        slotStart: true,
+        slotEnd: true,
+        status: true,
+        totalPrice: true,
+        createdAt: true,
+
         service: {
           select: {
             id: true,
             title: true,
           },
         },
+
         customer: {
           select: {
             id: true,
@@ -361,9 +370,11 @@ const getAdminDashboard = async () => {
             email: true,
           },
         },
+
         technician: {
           select: {
             id: true,
+
             user: {
               select: {
                 id: true,
@@ -372,6 +383,7 @@ const getAdminDashboard = async () => {
             },
           },
         },
+
         payment: {
           select: {
             id: true,
@@ -387,27 +399,40 @@ const getAdminDashboard = async () => {
         createdAt: "desc",
       },
       take: 5,
-      include: {
+      select: {
+        id: true,
+        bookingId: true,
+        transactionId: true,
+        amount: true,
+        provider: true,
+        status: true,
+        paidAt: true,
+        createdAt: true,
+
         booking: {
           select: {
             id: true,
             bookingDate: true,
             status: true,
+
             service: {
               select: {
                 id: true,
                 title: true,
               },
             },
+
             customer: {
               select: {
                 id: true,
                 name: true,
               },
             },
+
             technician: {
               select: {
                 id: true,
+
                 user: {
                   select: {
                     id: true,
@@ -433,10 +458,12 @@ const getAdminDashboard = async () => {
       take: 5,
       select: {
         id: true,
+        profilePhoto: true,
         averageRating: true,
         totalReviews: true,
         completedJobs: true,
         location: true,
+
         user: {
           select: {
             id: true,
@@ -460,7 +487,7 @@ const getAdminDashboard = async () => {
       activeUsers,
       activeBookings,
       completedBookings,
-      totalRevenue: totalRevenueResult._sum.amount || 0,
+      totalRevenue: totalRevenueResult._sum.amount ?? 0,
     },
 
     bookingStatusSummary: {
@@ -484,7 +511,6 @@ const getAdminDashboard = async () => {
     topTechnicians,
   };
 };
-
 export const adminService = {
   createCategory,
   getAllCategories,
